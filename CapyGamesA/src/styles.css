@@ -1,4 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import 'boxicons';
+:root {
+  --fuentePrincipal: 'Poppins', sans-serif;
+  --fondo: #050e2d;
+  --navBar: #1b2141;
+  --blanco: #fff;
+  --fuenteSecu: 'Staatliches', cursive;
+  --hover: #1aeeef;
+  --search: #222;
+  --line: #35407e;
+}
+
+/* Generales */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuentePrincipal);
+}
+
+body {
+  background: var(--fondo);
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  color: var(--search);
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hover);
+  border-radius: 3px;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

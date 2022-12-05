@@ -1,0 +1,64 @@
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 7px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--navBar);
+  z-index: 1000;
+}
+
+
+header .logo {
+  position: relative;
+  color: var(--blanco);
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+header .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li a {
+  margin: 0 10px;
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+header ul li a:hover {
+  background: var(--hover);
+  color: var(--fondo);
+  box-shadow: 0 0 10px var(--hover);
+}
+
+header .action .searchBx {
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blanco);
+  border-radius: 5px;
+}
+
+header .action .searchBx {
+  font-size: 1.4em;
+  margin: 5px;
+  color: var(--search);
+}
+a{
+  text-decoration: none;
+}
+bx bx-cart bx-sm{
+  color: var(--blanco);
+}
+
