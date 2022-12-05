@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+:root {
+  --fuentePrincipal: 'Poppins', sans-serif;
+  --fondo: #050e2d;
+  --navBar: #1b2141;
+  --blanco: #fff;
+  --fuenteSecu: 'Staatliches', cursive;
+  --hover: #1aeeef;
+  --search: #222;
+  --line: #35407e;
+}
+/* Generales */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuentePrincipal);
+}
+
+body {
+  background: var(--fondo);
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  color: var(--search);
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hover);
+  border-radius: 3px;
+}
+
+
+.banner-innerpage {
+  padding: 150px 0 100px;
+  background-size: cover;
+  background-position: center center;
+}
+.banner-innerpage .title {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+}
+.banner-innerpage .subtitle {
+  color: #ffffff;
+}
+.shop-listing .shop-hover {
+  position: relative;
+}
+.shop-listing .shop-hover .card-img-overlay {
+  display: none;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.shop-listing .shop-hover:hover .card-img-overlay {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.shop-listing .shop-hover .label {
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+/*******************
+shop table
+*******************/
+.shop-table td {
+  padding: 30px 0;
+}
