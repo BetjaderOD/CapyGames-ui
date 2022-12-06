@@ -5,7 +5,8 @@ import { materialModules } from "src/app/types/material-modules";
 
 @NgModule({
     declarations: [MainGameComponent],
-    imports: [CommonModule, ...materialModules]
+    imports: [CommonModule, ...materialModules],
+    exports: [MainGameComponent]
 })
 
 export class GameModule {}
