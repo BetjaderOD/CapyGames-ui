@@ -1,22 +1,58 @@
-<!-- Headeer -->
-<header>
-  <a href="index.html" class="logo">Capybara's Games</a>
-  <ul class="nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Games</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <div class="action">
-    <div class="searchBx">
-      <a href=""><i class='bx bx-search'></i></a>
-      <input type="search " placeholder="Buscar Juegos" id="inputBusqueda">
-    </div>
-  </div>
-  <div class="menu">
-<span class="material-symbols-outlined">
-logout
-</span>
-  </div>
-</header>
-<main-cart></main-cart>
+<div *ngIf="session.logged">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+    >
+      <mat-toolbar class="justify-content-center">
+        <img
+          [src]="logoPath"
+          alt="CapyGames"
+          style="width: 35%; height: auto; display: inline; margin-top: 10px;"
+        />
+      </mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="games"><mat-icon>sports_esports</mat-icon>   Games</a>
+        <a mat-list-item routerLink="cart"><mat-icon>shopping_cart</mat-icon>   Cart</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="row">
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div class="col text-end">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item><mat-icon>person</mat-icon>Perfil</button>
+            <button mat-menu-item>
+              <mat-icon>logout</mat-icon>Cerrar Sesion
+            </button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+      <div class="container-fluid border">
+        <div class="row">
+          <div class="col">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<div *ngIf="!session.logged">
+  <app-signin></app-signin>
+</div>

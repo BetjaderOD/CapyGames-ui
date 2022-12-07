@@ -1,22 +1,35 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { AppRouterModule } from './shared/routers/app-routing.module';
 import { AppComponent } from './app.component';
-import {NavigationComponent} from "./shared/navigation/navigation..component";
-import {CartModule} from "./modules/Customer/cart/cart.module";
+import { materialModules } from './types/material-modules';
+import { GameModule } from './modules/Customer/game/game.module';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AuthModule } from './modules/Customer/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,NavigationComponent
+    AppComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    CartModule,
-
+    AppRouterModule,
+    LayoutModule,
+    BrowserAnimationsModule,
+    ...materialModules,
+    GameModule,
+    AuthModule,
+    HttpClientModule,
   ],
   providers: [],
+  exports: [
+    AppComponent,
+    NavigationComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
