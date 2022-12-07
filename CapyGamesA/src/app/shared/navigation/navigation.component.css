@@ -1,4 +1,5 @@
-/* Header */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 header {
   position: fixed;
   top: 0;
@@ -77,4 +78,11 @@ bx bx-cart bx-sm{
     position: sticky;
     top: 0;
     z-index: 1;
+  }
+
+  #tit {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
   }
