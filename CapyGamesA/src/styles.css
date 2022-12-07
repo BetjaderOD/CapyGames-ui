@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-@import 'boxicons';
+@import "bootstrap";
 :root {
   --fuentePrincipal: 'Poppins', sans-serif;
   --fondo: #050e2d;
@@ -31,7 +31,6 @@ html {
 }
 
 body {
-  background: var(--fondo);
   font-size: 1.6rem;
 }
 
