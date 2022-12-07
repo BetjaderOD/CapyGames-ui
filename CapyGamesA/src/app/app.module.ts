@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { materialModules } from './types/material-modules';
 import { GameModule } from './modules/Customer/game/game.module';
 import { NavigationComponent } from './shared/navigation/navigation.component';
+import { MainGameComponent } from './modules/Customer/game/pages/main-game/main-game.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
   imports: [
     BrowserModule,
     AppRouterModule,
+    LayoutModule,
     BrowserAnimationsModule,
-    ...materialModules, 
+    ...materialModules,
     GameModule
   ],
   providers: [],

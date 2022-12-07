@@ -51,6 +51,13 @@ export class MainGameComponent implements OnInit {
     });
   }
 
+  getGameById(id: number) {
+    this.gameService.findById(id).subscribe((res) => {
+      this.gameService.juego = res;
+      this.gameService.edit = true;
+    });
+  }
+
   announceSortChange(sort: Sort) {
     if (sort.direction) {
       this._liveAnnouncer.announce(

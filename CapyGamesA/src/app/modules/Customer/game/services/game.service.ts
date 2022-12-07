@@ -31,4 +31,8 @@ export class GameService {
     findAll() {
         return this.http.get<Game[]>(`${APP_URL}/games`);
     }
+
+    findById(id: number) {
+        return this.http.get<Game>(`${APP_URL}/games/${id}`);
+    }
 }
