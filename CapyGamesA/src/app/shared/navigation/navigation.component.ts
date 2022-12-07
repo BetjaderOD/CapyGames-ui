@@ -10,6 +10,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
+  session:any = {
+    logged: true,
+  };
+
   logoPath = '../../../assets/img/capiLogo.png';
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -22,7 +26,15 @@ export class NavigationComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router
-  ) {}
+  ) {
+    /*this.session.logged = !!localStorage.getItem('token');
+    if(!this.session.logged) this.router.navigateByUrl('/auth')
+    /*
+    value = null;
+    !value = false;
+    !!value = true;
+    */
+  }
 
   navigateToGame() {
     this.router.navigate(['/']);

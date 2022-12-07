@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { materialModules } from './types/material-modules';
 import { GameModule } from './modules/Customer/game/game.module';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { MainGameComponent } from './modules/Customer/game/pages/main-game/main-game.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AuthModule } from './modules/Customer/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
     BrowserAnimationsModule,
     ...materialModules,
-    GameModule
+    GameModule,
+    AuthModule,
+    HttpClientModule,
   ],
   providers: [],
   exports: [

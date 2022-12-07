@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterModule, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { GameService } from '../../services/game.service';
@@ -35,7 +36,7 @@ export class MainGameComponent implements OnInit {
   constructor(
     private readonly gameService: GameService,
     private _liveAnnouncer: LiveAnnouncer,
-    public dialog: MatDialog
+    public dialog: MatDialog,
     ) {}
 
   ngOnInit() {
@@ -71,6 +72,10 @@ export class MainGameComponent implements OnInit {
   }
 
   addToCart(game: Game) {
+    console.log(game);
+  }
+
+  viewGame(game: Game) {
     console.log(game);
   }
 }
