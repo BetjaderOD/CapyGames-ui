@@ -10,12 +10,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './modules/Customer/cart/cart.module';
+import { RouterModule } from '@angular/router';
+import { MainCartComponent } from './modules/Customer/cart/pages/main-cart/main-cart.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-  ],
+  declarations: [AppComponent, NavigationComponent,],
   imports: [
     BrowserModule,
     AppRouterModule,
@@ -25,14 +24,15 @@ import { CartModule } from './modules/Customer/cart/cart.module';
     GameModule,
     AuthModule,
     HttpClientModule,
-    CartModule
+    CartModule,
+    RouterModule.forRoot([
+      { path: '', component: MainCartComponent },
+      { path: 'cart/:cartId', component: MainCartComponent },
+    ]),
+  ],
 
-  ],
   providers: [],
-  exports: [
-    AppComponent,
-    NavigationComponent,
-  ],
-  bootstrap: [AppComponent]
+  exports: [AppComponent, NavigationComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
