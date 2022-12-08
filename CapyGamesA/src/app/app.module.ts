@@ -9,6 +9,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CartModule } from './modules/Customer/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     GameModule,
     AuthModule,
     HttpClientModule,
+    CartModule
+
   ],
   providers: [],
   exports: [
