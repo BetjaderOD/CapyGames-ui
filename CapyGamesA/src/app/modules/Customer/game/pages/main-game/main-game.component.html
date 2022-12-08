@@ -23,20 +23,22 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button
-            mat-raised-button
-            color="primary"
-            (click)="addToCart()"
-          >
-            Add to cart
-          </button>
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="viewGame()"
-          >
-            View Game
-          </button>
+        <div *ngIf="selectedGame">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="addToCart()"
+            >
+              <mat-icon>shopping_cart</mat-icon>Add to cart
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="viewGame()"
+            >
+              <mat-icon>visibility</mat-icon>View
+            </button>
+          </div>
       </mat-card-actions>
     </mat-card>
     -->
