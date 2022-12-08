@@ -9,11 +9,13 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderComponent } from './modules/Customer/order/pages/main-order/main-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

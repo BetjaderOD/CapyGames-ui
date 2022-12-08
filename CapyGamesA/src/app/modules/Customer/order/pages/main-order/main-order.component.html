@@ -1,0 +1,56 @@
+<app-navigation></app-navigation>
+<div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Order</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                    <th>
+                        Order ID
+                    </th>
+                    <th>
+                        Order Date
+                    </th>
+                    <th>
+                        Order Status
+                    </th>
+                    <th>
+                        Order Total
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td>
+                        {{order.orderId}}
+                        </td>
+                        <td>
+                        {{order.orderDate}}
+                        </td>
+                        <td>
+                        {{order.orderStatus}}
+                        </td>
+                        <td>
+                        {{order.orderTotal}}
+                        </td>
+                        <td>
+                        <button class="btn btn-primary" (click)="viewOrder(order.orderId)">View</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
