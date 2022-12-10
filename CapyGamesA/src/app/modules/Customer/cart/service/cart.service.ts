@@ -27,8 +27,7 @@ export class CartService {
     this.loading = true;
     return this.http.get<Cart[]>(`${APP_URL}/cart/`);
   }
-//find by id
-//create variable id
+
 
   findById(id: number) {
     this.loading = true;

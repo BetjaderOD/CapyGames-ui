@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './modules/Customer/cart/cart.module';
 import { RouterModule } from '@angular/router';
 import { MainCartComponent } from './modules/Customer/cart/pages/main-cart/main-cart.component';
+import { CartService } from './modules/Customer/cart/service/cart.service';
+import { GameService } from './modules/Customer/game/services/game.service';
+
+
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent,],
@@ -25,14 +29,13 @@ import { MainCartComponent } from './modules/Customer/cart/pages/main-cart/main-
     AuthModule,
     HttpClientModule,
     CartModule,
-    RouterModule.forRoot([
-      { path: '', component: MainCartComponent },
-      { path: 'cart/:cartId', component: MainCartComponent },
-    ]),
+  
   ],
 
-  providers: [],
+  providers: [CartService,GameService],
   exports: [AppComponent, NavigationComponent],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

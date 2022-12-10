@@ -9,6 +9,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {Cart} from "../../types/cart";
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { CartService } from "../../service/cart.service";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,13 +24,16 @@ export class MainCartComponent implements OnInit {
   cart!: MatTableDataSource<Cart>;
 
 
+
+
   get isLoading() {
     return this.cartService.loading;
   }
 
   constructor(private cartService: CartService,
               private _liveAnnouncer: LiveAnnouncer,
-              private dialog: MatDialog) {
+    private dialog: MatDialog
+    ,private router: Router) {
   }
 
 

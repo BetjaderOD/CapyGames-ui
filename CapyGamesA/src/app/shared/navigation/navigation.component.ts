@@ -14,7 +14,7 @@ export class NavigationComponent {
     logged: true,
   };
 
-  logoPath = '../../../assets/img/capiLogo.png';
+  logoPath = 'assets/images/logo.png';
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)

@@ -1,8 +1,52 @@
-<div **ngFor="let item of items">
-    <h3>
-        <a >
+ <mat-card class="mt-5 mb-5">
+  <mat-card-header class="row">
+    <div class="col-12">
+      <mat-card-title class="text-center" id="titleCart">Cart</mat-card-title>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+<section>
+        <div class="spacer">
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-lg-9">
+                <div class="row shop-listing">
+                  <table class="table shop-table" >
+                    <tr>
+                      <th class="b-0 text-center">Game</th>
+                      <th class="b-0 text-center ">Precio</th>
+                      <th class="b-0 text-center">Cantidad</th>
+                      <th class="b-0 text-right">Total</th>
+                      <th class="b-0 text-right"></th>
+                    </tr>
+                    <tr >
+                      <td class="text-center">Nombre juego</td>
+                      <td class="text-center">2000</td>
+                      <td class="text-center">
+                        <button class="btn btn-outline-primary btn-sm">+</button>
 
-        </a>
-    </h3>
+                        <button class="btn btn-outline-danger btn-sm">-</button>
+                      </td>
+                      <td class="text-right">
+                        <h5 class="font-medium m-b-30">200</h5>
+                      </td>
+                      <!-- Boton eliminar alineado al final -->
+                      <td class="text-right">
+                         <button mat-flat-button color="warn">Eliminar</button>
+                     </td>
 
-</div>
+                    </tr>
+                    <tr>
+                        <button mat-flat-button color="primary">Pagar</button>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </mat-card-content>
+</mat-card>
+
+
