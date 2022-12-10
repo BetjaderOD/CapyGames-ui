@@ -21,7 +21,7 @@ export class GameService {
         stock: 0,
     };
 
-    get game() {
+    get games() {
         return [...this.jueg];
     }
 

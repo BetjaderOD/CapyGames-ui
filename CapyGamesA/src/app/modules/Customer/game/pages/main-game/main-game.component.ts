@@ -10,12 +10,14 @@ import { Game } from '../../types/game';
 
 export class MainGameComponent implements OnInit {
 
+  games: any[] = [];
+
   get isLoading() {
-    return this.gameService.loading;
+    return this._gameService.loading;
   }
 
   constructor(
-    private readonly gameService: GameService,
+    private readonly _gameService: GameService,
     ) {}
 
   ngOnInit() {
