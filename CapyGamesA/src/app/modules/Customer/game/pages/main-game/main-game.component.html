@@ -1,57 +1,31 @@
-<mat-card class="mt-5 mb-5">
+<mat-card class="mt-5 mb-5" style="padding-left: 30px">
   <mat-card-header class="row">
     <div class="col-12">
       <mat-card-title class="text-center" id="titleGame">Games</mat-card-title>
     </div>
   </mat-card-header>
   <mat-card-content>
-    <mat-card>
+    <mat-card class="row" style="width: 25%" **ngFor="let game of games">
       <mat-card-header class="row">
         <div class="col">
-          <mat-card-title>DBD</mat-card-title>
-          <mat-card-subtitle>Survivor</mat-card-subtitle>
+          <mat-card-title>{{ game.name }}</mat-card-title>
+          <mat-card-subtitle>{{ game.genre }}</mat-card-subtitle>
         </div>
       </mat-card-header>
       <img
         mat-card-image
-        src="https://phantom-marca.unidadeditorial.es/da2d5baf1ea1fa9a02f13f39b86fe52f/resize/1320/f/jpg/assets/multimedia/imagenes/2021/12/03/16385608274679.jpg"
-        alt="Photo of a Shiba Inu"
+        src="{{ game.image }}"
+        alt="La imagen no se pudo cargar"
       />
       <mat-card-content>
-        <p>Hola</p>
+        <p>{{ game.description }}</p>
       </mat-card-content>
       <mat-card-actions>
         <div>
           <button mat-raised-button color="primary">
             <mat-icon>shopping_cart</mat-icon>Add to cart
           </button>
-          <button mat-raised-button color="primary" style="margin-left: 10px;">
-            <mat-icon>visibility</mat-icon>View
-          </button>
-        </div>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card>
-      <mat-card-header class="row">
-        <div class="col">
-          <mat-card-title>DBD</mat-card-title>
-          <mat-card-subtitle>Survivor</mat-card-subtitle>
-        </div>
-      </mat-card-header>
-      <img
-        mat-card-image
-        src="https://phantom-marca.unidadeditorial.es/da2d5baf1ea1fa9a02f13f39b86fe52f/resize/1320/f/jpg/assets/multimedia/imagenes/2021/12/03/16385608274679.jpg"
-        alt="Photo of a Shiba Inu"
-      />
-      <mat-card-content>
-        <p>Hola</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <div>
-          <button mat-raised-button color="primary">
-            <mat-icon>shopping_cart</mat-icon>Add to cart
-          </button>
-          <button mat-raised-button color="primary" style="margin-left: 10px;">
+          <button mat-raised-button color="primary" style="margin-left: 10px">
             <mat-icon>visibility</mat-icon>View
           </button>
         </div>

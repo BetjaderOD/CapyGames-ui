@@ -10,7 +10,7 @@ import { Game } from '../../types/game';
 
 export class MainGameComponent implements OnInit {
 
-  games: any[] = [];
+  games: Game[] = [];
 
   get isLoading() {
     return this._gameService.loading;
