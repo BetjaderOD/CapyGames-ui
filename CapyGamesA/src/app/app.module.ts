@@ -9,6 +9,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+
 import { CartModule } from './modules/Customer/cart/cart.module';
 import { RouterModule } from '@angular/router';
 import { MainCartComponent } from './modules/Customer/cart/pages/main-cart/main-cart.component';
@@ -19,6 +20,15 @@ import { GameService } from './modules/Customer/game/services/game.service';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent,],
+import { OrderComponent } from './modules/Customer/order/pages/main-order/main-order.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    OrderComponent
+  ],
+
   imports: [
     BrowserModule,
     AppRouterModule,
