@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { CartService } from '../../modules/Customer/cart/service/cart.service';
 
 @Component({
   selector: 'app-navigation',
@@ -25,7 +26,8 @@ export class NavigationComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {
     /*this.session.logged = !!localStorage.getItem('token');
     if(!this.session.logged) this.router.navigateByUrl('/auth')

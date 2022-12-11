@@ -21,26 +21,27 @@ export class CartService {
   }
 
   constructor(private http: HttpClient) {
+    console.log("cart service");
   }
 
   findAll() {
     this.loading = true;
-    return this.http.get<Cart[]>(`${APP_URL}/cart/`);
+    return this.http.get<Cart[]>(`${APP_URL}cart/`);
   }
 
 
   findById(id: number) {
     this.loading = true;
-    return this.http.get<Cart>(`${APP_URL}/cart/${id}`);
+    return this.http.get<Cart>(`${APP_URL}cart/${id}`);
   }
 
   updateCart(cart: Cart) {
     this.loading = true;
-    return this.http.put<Cart>(`${APP_URL}/cart/${cart.id}`, cart);
+    return this.http.put<Cart>(`${APP_URL}cart/${cart.id}`, cart);
   }
   deleteCart(id: number) {
     this.loading = true;
-    return this.http.delete<Cart>(`${APP_URL}/cart/${id}`);
+    return this.http.delete<Cart>(`${APP_URL}cart/${id}`);
   }
   saveCart(cart: Cart) {
     this.loading = true;

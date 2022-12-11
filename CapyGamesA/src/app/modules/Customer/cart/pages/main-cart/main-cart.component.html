@@ -17,28 +17,52 @@
                       <th class="b-0 text-center ">Precio</th>
                       <th class="b-0 text-center">Cantidad</th>
                       <th class="b-0 text-right">Total</th>
-                      <th class="b-0 text-right"></th>
+                      <th class="b-0 text-right">Eliminar</th>
                     </tr>
-                    <tr >
-                      <td class="text-center">Nombre juego</td>
-                      <td class="text-center">2000</td>
+                    <!-- mostar datos de api cart -->
+                    <tr *ngFor="let cart of cart">
                       <td class="text-center">
-                        <button class="btn btn-outline-primary btn-sm">+</button>
+                        <div class="d-flex align-items-center">
 
-                        <button class="btn btn-outline-danger btn-sm">-</button>
+                          <div class="content">
+                            <h5 class="mb-0">{{cart.game_name}}</h5>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <h5 class="mb-0">{{cart.game_price}}</h5>
+                      </td>
+                      <td class="text-center">
+                        <div class="d-flex align-items-center">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-secondary" type="button" (click)="decrement()">-</button>
+                            </div>
+                            <input type="text" class="form-control" value="{{cart.cart_quantity}}" disabled>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button" (click)="increment()">+</button>
+                            </div>
+                          </div>
+                        </div>
                       </td>
                       <td class="text-right">
-                        <h5 class="font-medium m-b-30">200</h5>
+                        <h5 class="mb-0">{{cart.total_price}}</h5>
                       </td>
-                      <!-- Boton eliminar alineado al final -->
-                      <td class="text-right">
-                         <button mat-flat-button color="warn">Eliminar</button>
-                     </td>
+                      <td>
+                        <button mat-flat-button color="warn" (click)="deleteCart()">Eliminar</button>
+                      </td>
 
-                    </tr>
                     <tr>
                         <button mat-flat-button color="primary">Pagar</button>
                     </tr>
+
+                    <tr>
+                      <td class="text-right" colspan="3">
+                        <h5 class="mb-0">SubTotal: </h5>
+                      </td>
+                      <!-- <td class="text-right">
+                        <h5 class="mb-0">{{cart.Subtotal_price}}</h5>
+                      </td> -->
                   </table>
                 </div>
               </div>
