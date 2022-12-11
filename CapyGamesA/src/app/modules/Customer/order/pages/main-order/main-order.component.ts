@@ -15,11 +15,10 @@ class Order {
 })
 
 export class OrderComponent {
-    path: 'order/:id';
+
   order: any;
-  
+  private router: any;
     constructor() {}
-  
     viewOrder(
       order: Order,
     ) {
