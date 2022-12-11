@@ -26,7 +26,15 @@ export class ReviewService{
     }
 
     findAll(){
-      return this.http.get<Review[]>(`${APP_URL}/review`);
+      this.loading = true
+      return this.http.get<Review[]>(`${APP_URL}api/review`);
     }
-
+    update(review: Review){
+      this.loading = true;
+      return this.http.put<Review>(`${APP_URL}api/review`,review)
+    }
+  save(review: Review){
+    this.loading = true;
+    return this.http.post<Review>(`${APP_URL}api/review`,review)
+  }
 };
