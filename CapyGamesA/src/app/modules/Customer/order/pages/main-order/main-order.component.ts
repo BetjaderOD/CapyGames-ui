@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 class Order {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  totalPrice: number;
+  id: number = 0;
+  name: string = "";
+  price: number = 0;
+  quantity: number = 0;
+  totalPrice: number = 0;
 }
 
 @Component({
@@ -24,4 +24,5 @@ export class OrderComponent {
     ) {
       this.router.navigate([`/order/${order.id}`]);
     }
+
   }
