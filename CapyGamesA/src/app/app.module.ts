@@ -10,15 +10,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './modules/Customer/cart/cart.module';
-import { RouterModule } from '@angular/router';
-import { MainCartComponent } from './modules/Customer/cart/pages/main-cart/main-cart.component';
 import { CartService } from './modules/Customer/cart/service/cart.service';
-import { GameService } from './modules/Customer/game/services/game.service';
-
 
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent,],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRouterModule,
@@ -29,10 +28,10 @@ import { GameService } from './modules/Customer/game/services/game.service';
     AuthModule,
     HttpClientModule,
     CartModule,
-  
+
   ],
 
-  providers: [CartService,GameService],
+  providers: [CartService,],
   exports: [AppComponent, NavigationComponent],
   bootstrap: [AppComponent],
 })
