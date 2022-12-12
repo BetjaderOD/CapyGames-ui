@@ -12,12 +12,12 @@ export class AddReviewComponent implements OnInit{
   positions: any[]=[];
   loadedFile: string | undefined
 
-  get edit(){
-    return this.ReviewServices.edit;
-  }
+  // get edit(){
+  //   return this.ReviewServices.edit;
+  // }
   constructor(private ReviewServices: ReviewService,
   public modalRef: DialogRef<AddReviewComponent>) {
-    this.Review = this.ReviewServices.rev;
+    this.Review = this.ReviewServices.review;
 
   }
   ngOnInit() :void{

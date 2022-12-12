@@ -9,7 +9,7 @@ import {ReviewService} from "../../services/review.service";
 import {AddReviewComponent} from "../add-review/add-review-component";
 
 @Component({
-  selector: 'app-main-reveiw',
+  selector: 'app-main-review',
   templateUrl: './main-review.component.html',
   styleUrls: ['./main-review.component.css'],
 })
@@ -21,24 +21,23 @@ export class MainReviewComponent implements OnInit {
     'description',
     'rating',
   ];
-  get review() {
-    return new MatTableDataSource<Review>(this.reviewService.review);
-  }
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  review!: MatTableDataSource<Review>;
 
-  constructor(private readonly reviewService: Review,
+  constructor(private readonly reviewService: ReviewService,
               private _liveAnnouncer: LiveAnnouncer,
               public dialog: MatDialog,) {
   }
 
   ngOnInit() {
-    this.getAllReview();
+    this.findAll();
   }
 
-  getAllReview() {
+  findAll() {
     this.reviewService.findAll().subscribe((response) => {
-      this.review = new MatTableDataSource<Review>(response);
+      this.review= new MatTableDataSource<Review>(response);
       this.reviewService.loading = false;
       this.review.paginator = this.paginator;
       this.review.sort = this.sort;

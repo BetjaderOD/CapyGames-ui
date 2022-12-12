@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<form #reviewForm="" novalidate (submit)="saveReview()">
+  <h2 mat-dialog-title>Register Review</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="row form-group mb-3">
+      <div class="col">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Title</mat-label>
+          <input matInput
+                 placeholder="Titulo"
+                 #title="ngModel"
+                 name="Titulo"
+                 [(ngModel)]="Review.title"
+                 required>
+          <mat-error *ngIf="title.invalid">
+                        <span *ngIf="title.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+          </mat-error>
+        </mat-form-field>
+        <div class="col">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Description</mat-label>
+            <input matInput
+                   placeholder="Description"
+                   #description="ngModel"
+                   name="surname"
+                   [(ngModel)]="Review.description"
+                   required>
+            <mat-error *ngIf="description.invalid">
+                        <span *ngIf="description.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Rating</mat-label>
+            <input matInput
+                   type="number"
+                   #rating="ngModel"
+                   name="Rating"
+                   max="5"
+                   min="0"
+                   [(ngModel)]="Review.rating"
+                   required>
+            <mat-error *ngIf="rating.invalid">
+                        <span *ngIf="rating.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+      Cancel
+    </button>
+    <button mat-button type="submit"[disabled]="rating.invalid">
+      <mat-icon>check</mat-icon>
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -8,9 +8,9 @@ import {APP_URL} from "../../../../services/base-url.app";
 })
 export class ReviewService{
   loading: boolean = false;
-  private rew: Review [] = [];
+  private resena: Review [] = [];
   edit: boolean = false;
-    rev: Review = {
+    review: Review = {
       id: 0,
       date: '',
       title: '',
@@ -18,8 +18,8 @@ export class ReviewService{
       rating: 0,
     };
 
-    get review(){
-      return[...this.rew];
+    get reviews(){
+      return[...this.resena];
     }
 
     constructor(private http: HttpClient) {
@@ -27,14 +27,15 @@ export class ReviewService{
 
     findAll(){
       this.loading = true
-      return this.http.get<Review[]>(`${APP_URL}api/review`);
+      return this.http.get<Review[]>(`${APP_URL}review`);
     }
-    update(review: Review){
+
+    save(review: Review){
       this.loading = true;
-      return this.http.put<Review>(`${APP_URL}api/review`,review)
+      return this.http.post<Review>(`${APP_URL}review/`,review)
     }
-  save(review: Review){
+  update(review: Review) {
     this.loading = true;
-    return this.http.post<Review>(`${APP_URL}api/review`,review)
+    return this.http.put<Review>(`${ APP_URL }review/`,review);
   }
 };

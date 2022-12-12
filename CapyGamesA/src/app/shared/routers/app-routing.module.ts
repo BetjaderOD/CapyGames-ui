@@ -8,10 +8,10 @@ import {MainReviewComponent} from "../../modules/Customer/review/pages/main-revi
 const routes: Routes = [
   { path: '', component: MainGameComponent, pathMatch: 'full' },
   { path: 'game', component: MainGameComponent },
+  {path: 'review', component:MainReviewComponent},
   { path: '**', redirectTo: '' },
   { path:'game/:id', component: GetGameComponent},
   {path: '',component:MainReviewComponent,pathMatch:'full'},
-  {path: 'review', component:MainReviewComponent},
 
 ];
 

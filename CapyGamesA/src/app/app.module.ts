@@ -10,6 +10,8 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import {ReviewService} from "./modules/Customer/review/services/review.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRouterModule,
     LayoutModule,
     BrowserAnimationsModule,
@@ -27,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ReviewService],
   exports: [
     AppComponent,
     NavigationComponent,
