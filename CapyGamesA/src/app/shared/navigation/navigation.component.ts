@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { LoginStateService } from '../../services/login-state.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,11 +11,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  session:any = {
-    logged: true,
-  };
-
   logoPath = '../../../assets/img/capiLogo.png';
+
+  get session() {
+    return this.loginStateService.isLogged;
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -25,18 +26,16 @@ export class NavigationComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private loginStateService: LoginStateService
   ) {
-    /*this.session.logged = !!localStorage.getItem('token');
-    if(!this.session.logged) this.router.navigateByUrl('/auth')
-    /*
-    value = null;
-    !value = false;
-    !!value = true;
-    */
+    this.loginStateService.setIsLogged = !!localStorage.getItem('token');
+    if (this.loginStateService.setIsLogged) this.router.navigateByUrl('/auth');
   }
 
-  navigateToGame() {
-    this.router.navigate(['/']);
+  logout() {
+    localStorage.clear();
+    this.loginStateService.setIsLogged = false;
+    this.router.navigateByUrl('/auth');
   }
 }

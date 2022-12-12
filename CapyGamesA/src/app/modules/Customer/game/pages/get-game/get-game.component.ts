@@ -9,12 +9,12 @@ import { Game } from '../../types/game';
 export class GetGameComponent implements OnInit {
   game: Game = {
     id: 0,
-    name: '',
-    genre: '',
-    price: 0,
-    image: '',
-    description: '',
-    stock: 0,
+    game_name: '',
+    game_genre: '',
+    game_price: 0,
+    game_image: '',
+    game_description: '',
+    game_stock: 0,
   };
 
   constructor(private route: ActivatedRoute) {}
