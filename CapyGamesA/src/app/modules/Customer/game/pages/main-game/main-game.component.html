@@ -1,10 +1,38 @@
-<mat-card class="mt-5 mb-5">
+<mat-card class="mt-5 mb-5" style="padding-left: 15px;">
   <mat-card-header class="row">
     <div class="col-12">
-      <mat-card-title class="text-center" id="titleGame">Games</mat-card-title>
+      <mat-card-title class="text-center" id="titleGame">Games<mat-icon>sports_esports</mat-icon></mat-card-title>
     </div>
   </mat-card-header>
   <mat-card-content>
+    <div class="row">
+    <mat-card style="width: 23%; margin-top: 20px; margin-left: 20px;" *ngFor="let game of games">
+      <mat-card-header class="row">
+        <div>
+          <mat-card-title>{{ game.game_name }}</mat-card-title>
+          <mat-card-subtitle>{{ game.game_genre }}</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="../../../../../../assets/img/{{ game.game_image }}"
+        alt="La imagen no se pudo cargar"
+      />
+      <mat-card-content>
+        <p style="font-size: 17px;">${{ game.game_price }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="justify-text-end">
+          <button mat-raised-button color="primary" (click)="addCart(game)">
+            <mat-icon>shopping_cart</mat-icon>Add to cart
+          </button>
+          <button mat-raised-button color="primary" style="margin-left: 10px" (click)="viewGame(game)">
+            <mat-icon>visibility</mat-icon>View
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
     <!--
       <mat-card
     class="col-12"

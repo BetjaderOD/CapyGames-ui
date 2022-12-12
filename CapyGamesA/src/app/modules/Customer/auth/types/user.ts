@@ -1,4 +1,4 @@
-export type UserLogin = {
-  email: string;
-  password: string;
+export type CustomerLogin = {
+  customer_email: string;
+  customer_password: string;
 }

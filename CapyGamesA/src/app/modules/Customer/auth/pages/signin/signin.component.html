@@ -1,8 +1,8 @@
-<div class="container-fluid" style="margin-top: 330px;">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12 text-center">
       <mat-card
-        class="position-absolute top-100 start-50 translate-middle justify-content-center"
+        class="position-absolute top-50 start-50 translate-middle justify-content-center"
         style="width: 35%"
       >
         <mat-card-header class="row mt-1">
@@ -26,16 +26,16 @@
                   type="email"
                   matInput
                   required
-                  name="email"
-                  #email="ngModel"
-                  [(ngModel)]="user.email"
+                  name="customer_email"
+                  #customer_email="ngModel"
+                  [(ngModel)]="customer.customer_email"
                   placeholder="ejemplo@gmail.com"
                 />
-                <mat-error *ngIf="email.invalid">
-                  <span *ngIf="email.errors?.['required']"
+                <mat-error *ngIf="customer_email.invalid">
+                  <span *ngIf="customer_email.errors?.['required']"
                     >Campo Obligatorio</span
                   >
-                  <span *ngIf="email.errors?.['email']"
+                  <span *ngIf="customer_email.errors?.['email']"
                     >Ingresa correo valido</span
                   >
                 </mat-error>
@@ -48,13 +48,13 @@
                   type="password"
                   matInput
                   required
-                  name="password"
-                  #password="ngModel"
-                  [(ngModel)]="user.password"
+                  name="customer_password"
+                  #customer_password="ngModel"
+                  [(ngModel)]="customer.customer_password"
                   placeholder="*************"
                 />
-                <mat-error *ngIf="password.invalid">
-                  <span *ngIf="password.errors?.['required']"
+                <mat-error *ngIf="customer_password.invalid">
+                  <span *ngIf="customer_password.errors?.['required']"
                     >Campo Obligatorio</span
                   >
                 </mat-error>

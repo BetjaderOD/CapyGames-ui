@@ -1,35 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserLogin } from '../../types/user';
+import { CustomerLogin } from '../../types/user';
 import { AuthService } from '../../service/auth.service';
+import { LoginStateService } from '../../../../../services/login-state.service';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html'
+  templateUrl: './signin.component.html',
 })
-export class SigninComponent implements OnInit {
-  user: UserLogin = {
-    email: '',
-    password: '',
+export class SigninComponent {
+  customer: CustomerLogin = {
+    customer_email: '',
+    customer_password: '',
   };
 
-  logoPath = '../../../../assets/img/capiLogo.png'
+  logoPath = '../../../../assets/img/capiLogo.png';
 
   get isLoading() {
     return this.authService.isLoading;
   }
 
-  constructor(private authService: AuthService, private router: Router) {
-    if(!!localStorage.getItem('token')) {
-      this.router.navigateByUrl('/');
-    }
-   }
-
-  ngOnInit(): void {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private loginState: LoginStateService
+  ) {
+    this.loginState.setIsLogged = !!localStorage.getItem('token');
+    if (!this.loginState.isLogged) this.router.navigateByUrl("/");
   }
 
   signin() {
-    this.authService.login(this.user);
+    this.authService.login(this.customer);
   }
-
 }

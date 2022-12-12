@@ -9,30 +9,39 @@ import { APP_URL } from 'src/app/services/base-url.app';
 
 export class GameService {
     loading: boolean = false;
-    private jueg: Game [] = [];
-    edit: boolean = false;
-    juego: Game = {
+    private juego: Game [] = [];
+    game: Game = {
         id: 0,
-        name: '',
-        genre: '',
-        price: 0,
-        image: '',
-        description: '',
-        stock: 0,
+        game_name: '',
+        game_genre: '',
+        game_price: 0,
+        game_image: '',
+        game_description: '',
+        game_stock: 0,
     };
 
-    get game() {
-        return [...this.jueg];
+    get Games() {
+        return [...this.juego];
     }
 
     constructor(private http: HttpClient) {
+        console.log('Servicio de juegos listo');
     }
 
     findAll() {
-        return this.http.get<Game[]>(`${APP_URL}/games`);
+        this.loading = true;
+        return this.http.get<Game[]>(`${APP_URL}games/`);
     }
 
     findById(id: number) {
-        return this.http.get<Game>(`${APP_URL}/games/${id}`);
+        return this.http.get<Game>(`${APP_URL}games/${id}`);
+    }
+
+    addCart(game: Game) {
+        this.juego.push(game);
+    }
+
+    get Game() {
+        return this.juego;
     }
 }

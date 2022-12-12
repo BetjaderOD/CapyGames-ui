@@ -2,35 +2,42 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
-import { UserLogin } from '../types/user';
+import { CustomerLogin } from '../types/user';
+import { LoginStateService } from '../../../../services/login-state.service';
+import { APP_URL } from '../../../../services/base-url.app';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthService {
   private loading: boolean = false;
   get isLoading() {
     return this.loading;
-
   }
 
-  constructor(private readonly http: HttpClient, private router: Router) { }
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private loginState: LoginStateService
+  ) {}
 
-  login(payload: UserLogin): void {
+  login(customer: CustomerLogin) {
     this.loading = true;
-    this.http.post<any> (`http://localhost:3000/api/auth/`, payload, {
-      headers: {"Content-Type":"application/json"}
-    }).pipe(
-      catchError((error) => {
-        this.loading = false;
-        return error;
-
+    this.httpClient
+      .post<any>(APP_URL + 'auth/', customer, {
+        headers: { 'Content-Type': 'application/json' },
       })
-    ).subscribe ((response) => {
-      localStorage.setItem("token", response.token);
-      this.loading = false;
-      this.router.navigateByUrl('/')
-    });
+      .pipe(
+        catchError((error) => {
+          this.loading = false;
+          return error;
+        })
+      )
+      .subscribe((response) => {
+        localStorage.setItem('token', response.token);
+        this.loading = false;
+        this.loginState
+        this.router.navigateByUrl('/');
+      });
   }
 }
