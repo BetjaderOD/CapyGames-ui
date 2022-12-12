@@ -18,14 +18,7 @@ import { Router } from '@angular/router';
 })
 export class MainCartComponent implements OnInit {
 
-  // displayedColumns: string[] = ['id', 'game_id', 'cart_quantity', 'customer_id'];
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
-  // cart!: MatTableDataSource<Cart>;
-
   cart: any;
-
-
 
   get isLoading() {
     return this.cartService.loading;
@@ -39,29 +32,12 @@ export class MainCartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.getAllCart();
+
     this.getbyid();
-    //update y delete
     this.deleteCart();
 
   }
-  //getallcart in console
-  // getAllCart() {
-  //   this.cartService.findAll().subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
 
-  // getAllCart() {
-  //   this.cartService.findAll().subscribe((data) => {
-  //     this.cart = new MatTableDataSource<Cart>(data);
-  //     this.cart.paginator = this.paginator;
-  //     this.cart.sort = this.sort;
-  //   });
-
-  // }
-
-  //getbyid
   getbyid() {
     this.cartService.findById(1).subscribe((data: any) => {
       this.cart = data;
@@ -80,11 +56,15 @@ export class MainCartComponent implements OnInit {
       this.cart.cart_quantity--;
     }
   }
-  //delete
+
   deleteCart() {
     this.cartService.deleteCart(6).subscribe((data) => {
 
     });
+  }
+  pay() {
+   
+
   }
 
 

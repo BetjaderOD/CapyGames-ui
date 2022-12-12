@@ -45,6 +45,6 @@ export class CartService {
   }
   saveCart(cart: Cart) {
     this.loading = true;
-    return this.http.post<Cart>(`${APP_URL}/cart/`, cart);
+    return this.http.post<Cart>(`${APP_URL}cart/`, cart);
   }
 }
