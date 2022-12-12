@@ -86,3 +86,8 @@ bx bx-cart bx-sm{
     color: #fff;
     font-family: 'Press Start 2P', cursive;
   }
+  .active-link{
+    background: var(--hover);
+    color: var(--fondo);
+    box-shadow: 0 0 10px var(--hover);
+  }

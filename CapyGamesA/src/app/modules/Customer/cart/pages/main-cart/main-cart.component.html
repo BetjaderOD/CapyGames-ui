@@ -1,0 +1,76 @@
+ <mat-card class="mt-5 mb-5">
+  <mat-card-header class="row">
+    <div class="col-12">
+      <mat-card-title class="text-center" id="titleCart">Cart</mat-card-title>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+<section>
+        <div class="spacer">
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col-lg-9">
+                <div class="row shop-listing">
+                  <table class="table shop-table" >
+                    <tr>
+                      <th class="b-0 text-center">Game</th>
+                      <th class="b-0 text-center ">Precio</th>
+                      <th class="b-0 text-center">Cantidad</th>
+                      <th class="b-0 text-right">Total</th>
+                      <th class="b-0 text-right">Eliminar</th>
+                    </tr>
+                    <!-- mostar datos de api cart -->
+                    <tr *ngFor="let cart of cart">
+                      <td class="text-center">
+                        <div class="d-flex align-items-center">
+
+                          <div class="content">
+                            <h5 class="mb-0">{{cart.game_name}}</h5>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <h5 class="mb-0">{{cart.game_price}}</h5>
+                      </td>
+                      <td class="text-center">
+                        <div class="d-flex align-items-center">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-secondary" type="button" (click)="decrement()">-</button>
+                            </div>
+                            <input type="text" class="form-control" value="{{cart.cart_quantity}}" disabled>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button" (click)="increment()">+</button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-right">
+                        <h5 class="mb-0">{{cart.total_price}}</h5>
+                      </td>
+                      <td class="text-right">
+                        <button mat-flat-button color="warn" (click)="deleteCart()">Eliminar</button>
+                      </td>
+
+                    <tr>
+                        <button mat-flat-button color="primary">Pagar</button>
+                    </tr>
+
+                    <tr>
+                      <td class="text-right" colspan="3">
+                        <h5 class="mb-0">Subtotal: </h5>
+                      </td>
+                      <!-- <td class="text-right">
+                        <h5 class="mb-0">{{cart.Subtotal_price}}</h5>
+                      </td> -->
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </mat-card-content>
+</mat-card>
+
+

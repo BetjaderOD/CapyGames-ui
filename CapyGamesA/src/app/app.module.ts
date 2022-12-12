@@ -9,6 +9,9 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CartModule } from './modules/Customer/cart/cart.module';
+import { CartService } from './modules/Customer/cart/service/cart.service';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +27,14 @@ import { HttpClientModule } from '@angular/common/http';
     GameModule,
     AuthModule,
     HttpClientModule,
+    CartModule,
+
   ],
-  providers: [],
-  exports: [
-    AppComponent,
-    NavigationComponent,
-  ],
-  bootstrap: [AppComponent]
+
+  providers: [CartService,],
+  exports: [AppComponent, NavigationComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+
+}
