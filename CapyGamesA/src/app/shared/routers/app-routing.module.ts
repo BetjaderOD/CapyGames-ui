@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '**', pathMatch: 'full', redirectTo: 'game' },//si no encuentra la ruta, redirige a la ruta principal
   {path: 'order', component: MainOrderComponent},
   {path: 'order/:id', component: GetOrderComponent},
+  {path: '**', pathMatch: 'full', redirectTo: 'order'},
 
 ];
 

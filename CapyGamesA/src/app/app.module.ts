@@ -11,7 +11,7 @@ import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './modules/Customer/cart/cart.module';
 import { CartService } from './modules/Customer/cart/service/cart.service';
-
+import { OrderModule } from './modules/Customer/order/order.module';
 
 @NgModule({
   declarations: [

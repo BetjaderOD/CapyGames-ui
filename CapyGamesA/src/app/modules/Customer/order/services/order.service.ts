@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {order } from '../types/order';
+import {Order } from '../types/order';
 import { APP_URL } from 'src/app/services/base-url.app';
 
 @Injectable({
@@ -10,9 +10,9 @@ import { APP_URL } from 'src/app/services/base-url.app';
 
 export class OrderService {
     loading: boolean = false;
-    private ord: order [] = [];
+    private ord: Order [] = [];
     edit: boolean = false;
-    order: order = {
+    order: Order = {
         id: 0,
         name: '',
         price: 0,
@@ -20,18 +20,18 @@ export class OrderService {
         totalPrice: 0,
     };
 
-    get order() {
-        return [...this.ord];
+    save(order: Order) {
+        return this.http.post(`${APP_URL}/orders`, order);
     }
 
     constructor(private http: HttpClient) {
     }
 
     findAll() {
-        return this.http.get<order[]>(`${APP_URL}/orders`);
+        return this.http.get<Order[]>(`${APP_URL}/orders`);
     }
 
     findById(id: number) {
-        return this.http.get<order>(`${APP_URL}/orders/${id}`);
+        return this.http.get<Order>(`${APP_URL}/orders/${id}`);
     }
 }

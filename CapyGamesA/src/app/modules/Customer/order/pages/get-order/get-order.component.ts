@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {order} from '../../types/order';
+import {Order} from '../../types/order';
 
 @Component({
   selector: 'app-get-order',
@@ -8,20 +8,22 @@ import {order} from '../../types/order';
 })
 
 export class GetOrderComponent implements OnInit {
-  order: order = {
+  order: Order = {
     id: 0,
-    date: '',
-    total: 0,
-    status: '',
-  }
+    name: '',
+    price: 0,
+    quantity: 0,
+    totalPrice: 0,
+  };
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.order.id = params['id'];
       console.log(this.order);
+
     });
   }
+
 }

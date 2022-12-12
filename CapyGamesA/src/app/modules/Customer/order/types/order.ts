@@ -1,7 +1,7 @@
 
 import { Entity } from "../../../../types/entity";
 
-export type order = Entity<number> & {
+export type Order = Entity<number> & {
     name: string;
     price: number;
     quantity: number;
