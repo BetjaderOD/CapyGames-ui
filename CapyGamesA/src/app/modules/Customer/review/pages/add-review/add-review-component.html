@@ -1,4 +1,4 @@
-<form #reviewForm="" novalidate (submit)="saveReview()">
+<form #reviewForm="ngForm" novalidate (submit)="saveReview()">
   <h2 mat-dialog-title>Register Review</h2>
   <mat-dialog-content class="mat-typography">
     <div class="row form-group mb-3">
@@ -59,7 +59,7 @@
       <mat-icon>close</mat-icon>
       Cancel
     </button>
-    <button mat-button type="submit"[disabled]="rating.invalid">
+    <button mat-button type="submit"[disabled]="reviewForm.invalid">
       <mat-icon>check</mat-icon>
       Save
     </button>

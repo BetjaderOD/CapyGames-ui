@@ -32,10 +32,11 @@ export class ReviewService{
 
     save(review: Review){
       this.loading = true;
-      return this.http.post<Review>(`${APP_URL}review/`,review)
+      return this.http.post<any>(`${APP_URL}reviews`,review)
     }
-  update(review: Review) {
-    this.loading = true;
-    return this.http.put<Review>(`${ APP_URL }review/`,review);
-  }
+    update(review: Review) {
+      this.loading = true;
+      return this.http.post<any>(`${ APP_URL }reviews`,review);
+    }
+
 };

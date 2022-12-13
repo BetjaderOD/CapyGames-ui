@@ -27,14 +27,20 @@ export class AddReviewComponent implements OnInit{
       });
   }
 
+  // getByReview(){
+  //   this.ReviewServices.
+  // }
+
   saveReview(){
     console.log(this.Review);
-    if(this.ReviewServices.edit){
+    // if(this.ReviewServices.edit){
       this.ReviewServices.update(this.Review)
         .subscribe((response)=>{
+          console.log(response)
+          this.ReviewServices.loading = false;
           this.modalRef.close();
         })
-    }
+    // }
   }
   previewFile(event:any){
     const {target} = event;
