@@ -1,4 +1,4 @@
-<mat-card class="mt-5 mb-5" style="padding-left: 15px;">
+<mat-card class="mt-5 mb-5" style="padding-left: 10px;">
   <mat-card-header class="row">
     <div class="col-12">
       <mat-card-title class="text-center" id="titleGame">Games<mat-icon>sports_esports</mat-icon></mat-card-title>
@@ -6,7 +6,7 @@
   </mat-card-header>
   <mat-card-content>
     <div class="row">
-    <mat-card style="width: 23%; margin-top: 20px; margin-left: 20px;" *ngFor="let game of games">
+    <mat-card style="width: 23%; margin-top: 20px; margin-left: 20px; background-color: rgb(240, 236, 240);" *ngFor="let game of games">
       <mat-card-header class="row">
         <div>
           <mat-card-title>{{ game.game_name }}</mat-card-title>
@@ -15,14 +15,15 @@
       </mat-card-header>
       <img
         mat-card-image
-        src="../../../../../../assets/img/{{ game.game_image }}"
+        src="../../../../../../assets/Img/{{game.game_image}}"
         alt="La imagen no se pudo cargar"
+        style="width: 298px; margin-left: -7.8px; height: 180px;"
       />
       <mat-card-content>
-        <p style="font-size: 17px;">${{ game.game_price }}</p>
+        <p style="font-size: 17px; margin-top: 15px;">${{ game.game_price }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <div class="justify-text-end">
+        <div style="margin-left: 15px; margin-top: 10px;">
           <button mat-raised-button color="primary" (click)="addCart(game)">
             <mat-icon>shopping_cart</mat-icon>Add to cart
           </button>

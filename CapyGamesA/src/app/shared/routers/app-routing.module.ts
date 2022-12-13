@@ -9,11 +9,12 @@ import { SigninComponent } from '../../modules/Customer/auth/pages/signin/signin
 //rutas de navegacion
 const routes: Routes = [
   { path: '', component: MainGameComponent, pathMatch: 'full' },
-  { path: 'games', component: MainGameComponent },
-   {path: 'cart', component: MainCartComponent},
-  { path: 'getGame', component: GetGameComponent },
   { path: 'auth', component: SigninComponent },
-  //{ path: 'cart', component: Component },
+  { path: 'games', component: MainGameComponent },
+  { path: 'games/:id', component: GetGameComponent },
+  { path: 'cart', component: MainCartComponent },
+  { path: 'getGame', component: GetGameComponent },
+  // { path: 'cart', component: Component },
   //{ path: 'orders', component: Component },
   { path: '**', redirectTo: '' },
 ];

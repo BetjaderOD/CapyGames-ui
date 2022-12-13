@@ -36,8 +36,8 @@ export class AuthService {
       .subscribe((response) => {
         localStorage.setItem('token', response.token);
         this.loading = false;
-        this.loginState
-        this.router.navigateByUrl('/');
+        this.loginState.setIsLogged = true;
+        this.router.navigateByUrl('/games');
       });
   }
 }
