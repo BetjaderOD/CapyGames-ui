@@ -14,7 +14,7 @@ export class SigninComponent {
     customer_password: '',
   };
 
-  logoPath = '../../../../assets/Img/capiLogo.png';
+  logoPath = '../../../../assets/img/capiLogo.png';
 
   get isLoading() {
     return this.authService.isLoading;

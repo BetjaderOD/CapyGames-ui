@@ -13,7 +13,7 @@ import { Customer } from 'src/app/types/customer';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  logoPath = "../../../../assets/Img/capiLogo.png";
+  logoPath = "../../../../assets/img/capiLogo.png"
 
   customers: Customer[] = [];
 

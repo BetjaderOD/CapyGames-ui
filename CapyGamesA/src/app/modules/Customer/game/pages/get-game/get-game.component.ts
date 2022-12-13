@@ -1,7 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game } from '../../types/game';
+import { GameService } from '../../services/game.service';
 
+@Component({
+  selector: 'app-get-game',
+  templateUrl: './get-game.component.html',
+})
+export class GetGameComponent implements OnInit {
+
+  get isLoading() {
+    return this._gameservice.loading;
+  }
+
+  constructor(private route: ActivatedRoute,
+    private readonly _gameservice: GameService) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.findById(params['id']);
+    });
+  }
+
+  findById(id: number) {
+    this._gameservice.findById(id).subscribe((response) => {
+      this.game = response;
+      this._gameservice.loading = false;
+      console.log(response);
+      
+    });
+  }
+
+  game?: Game;
+
+  //add to cart
+  addCart(game: Game) {
+    this._gameservice.addCart(game);
+  }
+  
+}
+
+/*
 @Component({
   selector: 'app-get-game',
   templateUrl: './get-game.component.html',
@@ -27,3 +66,4 @@ export class GetGameComponent implements OnInit {
     });
   }
 }
+*/

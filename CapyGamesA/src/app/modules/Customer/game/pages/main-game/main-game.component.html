@@ -15,15 +15,15 @@
       </mat-card-header>
       <img
         mat-card-image
-        src="../../../../../../assets/Img/{{game.game_image}}"
+        src="../../../../../../assets/img/{{ game.game_image }}"
         alt="La imagen no se pudo cargar"
-        style="width: 298px; margin-left: -7.8px; height: 180px;"
+        style="width: 386px; margin-left: -7.8px; height: 220px;"
       />
-      <mat-card-content>
+      <mat-card-content style="text-align: center;">
         <p style="font-size: 17px; margin-top: 15px;">${{ game.game_price }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <div style="margin-left: 15px; margin-top: 10px;">
+        <div style="margin-left: 62px; margin-top: 10px;">
           <button mat-raised-button color="primary" (click)="addCart(game)">
             <mat-icon>shopping_cart</mat-icon>Add to cart
           </button>
