@@ -6,7 +6,7 @@
   </mat-card-header>
   <mat-card-content>
     <div class="row">
-    <mat-card style="width: 23%; margin-top: 20px; margin-left: 20px; background-color: rgb(240, 236, 240);" *ngFor="let game of games">
+    <mat-card id="cartGame" style="width: 23%; margin-top: 20px; margin-left: 20px; background-color: rgb(240, 236, 240);" *ngFor="let game of games">
       <mat-card-header class="row">
         <div>
           <mat-card-title>{{ game.game_name }}</mat-card-title>
