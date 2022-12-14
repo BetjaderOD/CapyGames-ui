@@ -12,12 +12,14 @@ import { AuthModule } from './modules/Customer/auth/auth.module'
 import { CartModule } from './modules/Customer/cart/cart.module';
 import { CartService } from './modules/Customer/cart/service/cart.service';
 import { GameService } from './modules/Customer/game/services/game.service';
+import { SigninComponent } from './modules/Customer/auth/pages/signin/signin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,8 @@ import { GameService } from './modules/Customer/game/services/game.service';
     AuthModule,
     HttpClientModule,
     CartModule,
+    AppRouterModule,
+
 
   ],
   providers: [
@@ -37,6 +41,7 @@ import { GameService } from './modules/Customer/game/services/game.service';
   exports: [
     AppComponent,
     NavigationComponent,
+ 
   ],
   bootstrap: [AppComponent]
 })

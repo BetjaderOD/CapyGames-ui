@@ -3,8 +3,9 @@
     <div class="col-12 text-center">
       <mat-card
         class="position-absolute top-50 start-50 translate-middle justify-content-center"
-        style="width: 35%"
-      >
+        style="width: 35%">
+
+
         <mat-card-header class="row mt-1">
           <div class="col text-center">
             <img
@@ -72,7 +73,17 @@
               >
                 Log in
               </button>
+              <button
+                type="button"
+                mat-flat-button
+                class="w-50"
+                color="primary"
+                (click)="goToSignup()"
+              >
+                Sign up
+              </button>
             </div>
+
           </mat-card-actions>
           <mat-card-footer *ngIf="isLoading">
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>

@@ -12,8 +12,8 @@ export class CartService {
   cart: Cart = {
     id: 0,
     game_id: 0,
-    cart_quantity: 0,
-    customer_id: 0,
+    cart_quantity: 1,
+    customers_id: 0,
   }
 
   getCart() {
@@ -29,12 +29,10 @@ export class CartService {
     return this.http.get<Cart[]>(`${APP_URL}cart/`);
   }
 
-
-  findById(id: number) {
+ findById(id: number) {
     this.loading = true;
     return this.http.get<Cart>(`${APP_URL}cart/${id}`);
   }
-
   updateCart(cart: Cart) {
     this.loading = true;
     return this.http.put<Cart>(`${APP_URL}cart/${cart.id}`, cart);
@@ -43,6 +41,7 @@ export class CartService {
     this.loading = true;
     return this.http.delete<Cart>(`${APP_URL}cart/${id}`);
   }
+
   saveCart(cart: Cart) {
     this.loading = true;
     return this.http.post<Cart>(`${APP_URL}cart/`, cart);

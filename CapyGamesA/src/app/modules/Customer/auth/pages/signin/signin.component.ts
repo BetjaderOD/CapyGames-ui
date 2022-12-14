@@ -26,10 +26,13 @@ export class SigninComponent {
     private loginState: LoginStateService
   ) {
     this.loginState.setIsLogged = !!localStorage.getItem('token');
-    if (!this.loginState.isLogged) this.router.navigateByUrl("/");
+    if (!this.loginState.isLogged) this.router.navigateByUrl('/');
   }
 
   signin() {
     this.authService.login(this.customer);
+  }
+  goToSignup() {
+    this.router.navigate(['signin/','signup']);
   }
 }

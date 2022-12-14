@@ -40,9 +40,7 @@ export class MainCartComponent implements OnInit {
     const decoded = JSON.parse(
       window.atob(token.split('.')[1])
     );
-
     console.log(decoded);
-
     /*
     console.log(token);
     const base64Url = token?.split('.')[1];
@@ -55,7 +53,6 @@ export class MainCartComponent implements OnInit {
     */
     this.cartService.findById(decoded.id).subscribe((data: any) => {
       this.cart = data;
-
       console.log(data);
     });
   }
