@@ -12,7 +12,7 @@ export class GetGameComponent implements OnInit {
   get isLoading() {
     return this._gameservice.loading;
   }
-
+game?: Game;
   constructor(private route: ActivatedRoute,
     private readonly _gameservice: GameService) {}
 
@@ -24,14 +24,14 @@ export class GetGameComponent implements OnInit {
 
   findById(id: number) {
     this._gameservice.findById(id).subscribe((response) => {
-      this.game = response;
+      this.game = response[0];
       this._gameservice.loading = false;
       console.log(response);
       
     });
   }
 
-  game?: Game;
+  
 
   //add to cart
   addCart(game: Game) {

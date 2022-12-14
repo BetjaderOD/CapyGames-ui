@@ -1,1 +1,25 @@
-
+<mat-card>
+    <mat-card-header class="row">
+      <div>
+        <mat-card-title>{{ game?.game_name }}</mat-card-title>
+        <mat-card-subtitle>{{ game?.game_genre }}</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="../../../../../../assets/img/{{ game?.game_image }}"
+      alt="La imagen no se pudo cargar"
+      style="width: 386px; margin-left: -7.8px; height: 220px;"
+    />
+    <mat-card-content style="text-align: center;">
+      <p style="font-size: 17px; margin-top: 15px;">${{ game?.game_price }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div style="margin-left: 62px; margin-top: 10px;">
+        <button mat-raised-button color="primary" (click)="addCart(game!)">
+          <mat-icon>shopping_cart</mat-icon>Add to cart
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  

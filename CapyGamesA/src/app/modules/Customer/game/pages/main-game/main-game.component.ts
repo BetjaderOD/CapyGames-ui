@@ -35,14 +35,7 @@ export class MainGameComponent implements OnInit {
       console.log(response);
     });
   }
-
-  findById(id: number) {
-    this._gameService.findById(id).subscribe((response) => {
-      this.game = response;
-      this._gameService.loading = false;
-    });
-  }
-
+  
   addCart(game: Game) {
     this._gameService.addToCart(game);
   }
