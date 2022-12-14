@@ -9,13 +9,14 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
-import { OrderComponent } from './modules/Customer/order/pages/main-order/main-order.component';
+import { CartModule } from './modules/Customer/cart/cart.module';
+import { CartService } from './modules/Customer/cart/service/cart.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,12 +27,14 @@ import { OrderComponent } from './modules/Customer/order/pages/main-order/main-o
     GameModule,
     AuthModule,
     HttpClientModule,
+    CartModule,
+
   ],
-  providers: [],
-  exports: [
-    AppComponent,
-    NavigationComponent,
-  ],
-  bootstrap: [AppComponent]
+
+  providers: [CartService,],
+  exports: [AppComponent, NavigationComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+
+}
