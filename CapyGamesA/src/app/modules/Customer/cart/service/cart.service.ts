@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {Cart} from "../types/cart";
 import {HttpClient} from "@angular/common/http";
 import {APP_URL} from "../../../../services/base-url.app";
+import { Game } from '../../game/types/game';
+import { Customer } from '../../../../types/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,10 @@ export class CartService {
   private carts: Cart[] = [];
   cart: Cart = {
     id: 0,
+    customer_id: 0,
     game_id: 0,
     cart_quantity: 0,
-    customer_id: 0,
+    
   }
 
   getCart() {
@@ -46,5 +49,10 @@ export class CartService {
   saveCart(cart: Cart) {
     this.loading = true;
     return this.http.post<Cart>(`${APP_URL}cart/`, cart);
+  }
+
+  addCart(cart: Cart, game: Game, customer: Customer) {
+    this.carts.push(cart);
+    console.log(this.carts);
   }
 }

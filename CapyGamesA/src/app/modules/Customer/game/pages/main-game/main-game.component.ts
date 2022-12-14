@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../types/game';
 import { Router } from '@angular/router';
+import { CartService } from '../../../cart/service/cart.service';
+import { Cart } from '../../../cart/types/cart';
+import { Customer } from '../../../../../types/customer';
+import { CustomerService } from '../../../../../services/customer.service';
 
 @Component({
   selector: 'app-main-game',
@@ -39,9 +43,8 @@ export class MainGameComponent implements OnInit {
     });
   }
 
-  //add to cart
   addCart(game: Game) {
-    this._gameService.addCart(game);
+    this._gameService.addToCart(game);
   }
 
   viewGame(game: Game) {

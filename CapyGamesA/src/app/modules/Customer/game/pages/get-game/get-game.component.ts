@@ -35,7 +35,7 @@ export class GetGameComponent implements OnInit {
 
   //add to cart
   addCart(game: Game) {
-    this._gameservice.addCart(game);
+    this._gameservice.addToCart(game);
   }
   
 }

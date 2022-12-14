@@ -11,6 +11,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
 import { Session } from '../../../../../types/session';
+import { GameService } from '../../../game/services/game.service';
 
 @Component({
   selector: 'main-cart',
@@ -25,6 +26,7 @@ export class MainCartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
+    private _gameService: GameService,
     private _liveAnnouncer: LiveAnnouncer,
     private dialog: MatDialog,
     private router: Router

@@ -37,11 +37,12 @@ export class GameService {
         return this.http.get<Game>(`${APP_URL}games/${id}`);
     }
 
-    addCart(game: Game) {
-        this.juego.push(game);
-    }
-
     get Game() {
         return this.juego;
+    }
+
+    addToCart(game: Game) {
+        this.juego.push(game);
+        console.log(this.juego);
     }
 }
