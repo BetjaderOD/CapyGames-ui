@@ -13,11 +13,11 @@ const routes: Routes = [
 
   { path: 'game', component: MainGameComponent },
   {path: 'cart', component: MainCartComponent},//ruta para el carrito
+  {path: 'order', component: MainOrderComponent},//ruta para el order
   { path: 'game/:id', component: GetGameComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'game' },//si no encuentra la ruta, redirige a la ruta principal
-  {path: 'order', component: MainOrderComponent},
   {path: 'order/:id', component: GetOrderComponent},
-  {path: '**', pathMatch: 'full', redirectTo: 'order'},
+  { path: '**', pathMatch: 'full', redirectTo: 'game' },//si no encuentra la ruta, redirige a la ruta principal
+  
 
 ];
 

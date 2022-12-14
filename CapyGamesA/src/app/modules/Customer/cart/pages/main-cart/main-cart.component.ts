@@ -22,10 +22,7 @@ export class MainCartComponent implements OnInit {
   // @ViewChild(MatPaginator) paginator!: MatPaginator;
   // @ViewChild(MatSort) sort!: MatSort;
   // cart!: MatTableDataSource<Cart>;
-
   cart: any;
-
-
 
   get isLoading() {
     return this.cartService.loading;

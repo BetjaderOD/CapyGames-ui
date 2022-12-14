@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../types/order';
-
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order',
@@ -30,7 +30,6 @@ export class MainOrderComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
   get isLoading() {
     return this.orderService.loading;
   }
@@ -39,12 +38,12 @@ export class MainOrderComponent implements OnInit {
     private readonly orderService: OrderService,
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
+    private router: Router
     ) {}
 
   ngOnInit() {
     this.getAllOrders();
   }
-
   getAllOrders() {
     this.orderService.findAll().subscribe((res) => {
       this.order = new MatTableDataSource<Order>(res);

@@ -9,4 +9,5 @@ import { materialModules } from 'src/app/types/material-modules';
   imports: [CommonModule, ...materialModules],
   exports: [MainOrderComponent, GetOrderComponent],
 })
+
 export class OrderModule {}
