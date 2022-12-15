@@ -1,13 +1,14 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatSort, Sort} from "@angular/material/sort";
-import {Review} from "../../types/review";
+import { MatSort, Sort } from "@angular/material/sort";
+import { ActivatedRoute } from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
-import {ReviewService} from "../../services/review.service";
-import {AddReviewComponent} from "../add-review/add-review-component";
-import { ActivatedRoute } from '@angular/router';
+import { Review } from '../../types/review';
+import { ReviewService } from "../../services/review.service";
+import { AddReviewComponent } from "../add-review/add-review-component";
+
 
 @Component({
   selector: 'app-main-review',
