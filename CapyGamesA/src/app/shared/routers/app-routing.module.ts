@@ -6,15 +6,19 @@ import { GetGameComponent } from '../../modules/Customer/game/pages/get-game/get
 import { MainCartComponent } from '../../modules/Customer/cart/pages/main-cart/main-cart.component';
 import { SigninComponent } from '../../modules/Customer/auth/pages/signin/signin.component';
 import { SignupComponent } from '../../modules/Customer/auth/pages/signup/signup.component';
+import { MainReviewComponent } from '../../modules/Customer/review/pages/main-review/main-review.component';
+import { AddReviewComponent } from '../../modules/Customer/review/pages/add-review/add-review-component';
 
 //rutas de navegacion
 const routes: Routes = [
   { path: '', component: MainGameComponent, pathMatch: 'full' },
   { path: 'auth', component: SigninComponent },
-  { path: 'signup', component: SignupComponent},
+  { path: 'signup', component: SignupComponent },
   { path: 'games', component: MainGameComponent },
   { path: 'games/:id', component: GetGameComponent },
   { path: 'cart', component: MainCartComponent },
+  { path: 'review', component: MainReviewComponent },
+  { path: 'review/:id', component: MainReviewComponent },
   { path: 'getGame', component: GetGameComponent },
   // { path: 'cart', component: Component },
   //{ path: 'orders', component: Component },
