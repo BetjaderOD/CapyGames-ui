@@ -67,7 +67,7 @@ export class MainCartComponent implements OnInit {
   }
 
   deleteCart() {
-    this.cartService.deleteCart(6).subscribe((data) => {});
+    this.cartService.deleteCart(32).subscribe((data) => {});
   }
   pay() {}
 }
