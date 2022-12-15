@@ -1,78 +1,35 @@
 <mat-card class="mt-5 mb-5">
   <mat-card-header class="row">
 
-    <div class="col-2">
-      <mat-card-title>Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-        Imagen aqui
-      </mat-card-title>
-    </div>
-    <div class="col-10">
-      <h2>God Of War</h2>
-      <p>
-        God of War (Dios de la Guerra) es un videojuego de acción y aventuras desarrollado por SCEA (Santa monica Studio) y distribuido por Sony Computer Entertainment el 22 de Marzo del 2005 para la consola Playstation 2.
-
-        Es el primer juego en estrenarse y el tercero en términos cronológicos internos de la saga. El juego narra las aventuras de Kratos, un general espartano al servicio de los Dioses de la mitología griega. El desarrollo del juego gira en torno de la idea de la hibris (desmesura del orgullo y la arrogancia) de Kratos al rebelarse contra los dioses y su propio destino y la némesis a la cual se ve sometido, estando así en consonancia con la literatura griega clásica. Sin embargo, en este caso la hibris de Kratos no sólo no es castigada, sino que le supone una victoria y destino mayor del que él mismo había concebido.
-
-        Fue muy bien recibido por los críticos y aficionados por igual y era el recipiente de numerosos premios, incluyendo "Mejor juego del año" honores de la Academia de Artes y Ciencias Interactivas. Incluso IGN nombró a God of War como uno de los mejores juegos de PlayStation 2. Gracias en parte al éxito crítico y comercial, una secuela titulada God of War II fue lanzada el 13 de marzo de 2007. En 2007, IGN nombró que God of War era el más grande juego de PlayStation 2 de todos los tiempos, en su lista de Top 25 Juegos de PS2.
-      </p>
-
-      <h3>Argumento</h3>
-      <p>
-        ratos nació en Esparta, una ciudad de Grecia caracterizada por ser cuna de los mejores guerreros. Desde muy pequeño Kratos mostraba gran fuerza, resistencia y tenacidad. Con gran maestría, entrenamiento, disciplina y constancia, él fue escalando rangos en la milicia espartana, hasta alcanzar el grado de general, junto a miles de guerreros que estaban bajo su mando.
-
-        Uno tras otro, los pueblos bárbaros caían ante las tácticas brutales y despiadadas, pero eficientes, de Kratos. Esté llevo su ambición al máximo para seguir conquistando ejércitos. Pero muy al Norte, se enfrentó con su destino. Un gran ejército de bárbaros le hizo frente. Sus subordinados fueron cayendo uno por uno y Kratos quedó solo a merced del Rey bárbaro y sus guerreros. Es aquí donde comienza su verdadera historia junto con las pesadillas que lo atormentan.
-      </p>
-
-      <h3>Sistema de juego</h3>
-      <p>
-        God of War mezcla luchas encarnizadas con pequeñas dosis de puzzles y plataforma. El personaje puede realizar un gran número de combos y poderes durante el transcurso del viaje, que irá aprendiendo avanzando el juego y mejorando sus cualidades en el menú, con el previo pago de orbes. En los combates puede realizar una especie de minijuego para rematar a algunos enemigos, sobre todo es esencial para acabar con los grandes enemigos, lo que se convierte en la característica principal del juego, la fluidez propia en el sistema de juego hace que muchos fans de este lo consideren uno de los mejores juegos de Playstation 2.
-      </p>
-
-    </div>
-
-    <div>
+    <mat-card-content>
       <table
         class="col-12"
-        mat-table
-        [dataSource]="review"
         matSort
-      >
-        <!-- Position Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-        </ng-container>
+        (matSortChange)="announceSortChange($event)">
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Titile</th>
-          <td mat-cell *matCellDef="let element">{{ element.surname }}</td>
+        <ng-container matColumnDef="#">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="description">
+        <ng-container matColumnDef="review_title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+          <td mat-cell *matCellDef="let element">{{ element.review_title }}</td>
+        </ng-container>
+        <ng-container matColumnDef="review_description">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
-          <td mat-cell *matCellDef="let element">{{ element.lastname }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.review_description }}</td>
+        </ng-container>
+        <ng-container matColumnDef="review_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>date</th>
+          <td mat-cell *matCellDef="let element">{{ element.review_date | date: "dd-MM-yyyy"}}</td>
+        </ng-container>
+        <ng-container matColumnDef="review_rating">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>rating</th>
+          <td mat-cell *matCellDef="let element">{{ element.review_rating }}</td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="salary">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Raing</th>
-          <td mat-cell *matCellDef="let element">{{ element.salary }}</td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
-
-    </div>
+    </mat-card-content>
 
     <mat-card class="mt-5 mb-5">
     <div class="col">
@@ -82,7 +39,7 @@
     <div class="col text-end">
       <button
         mat-mini-fab
-        color="accent"
+        color="warn"
         aria-label="Open register review"
         (click)="openDialog('0ms', '0ms')"
       >

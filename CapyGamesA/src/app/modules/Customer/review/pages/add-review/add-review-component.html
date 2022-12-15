@@ -9,7 +9,7 @@
                  placeholder="Titulo"
                  #title="ngModel"
                  name="Titulo"
-                 [(ngModel)]="Review.title"
+                 [(ngModel)]="Review.review_title"
                  required>
           <mat-error *ngIf="title.invalid">
                         <span *ngIf="title.errors?.['required']">
@@ -24,7 +24,7 @@
                    placeholder="Description"
                    #description="ngModel"
                    name="surname"
-                   [(ngModel)]="Review.description"
+                   [(ngModel)]="Review.review_description"
                    required>
             <mat-error *ngIf="description.invalid">
                         <span *ngIf="description.errors?.['required']">
@@ -42,10 +42,26 @@
                    name="Rating"
                    max="5"
                    min="0"
-                   [(ngModel)]="Review.rating"
+                   [(ngModel)]="Review.review_rating"
                    required>
             <mat-error *ngIf="rating.invalid">
                         <span *ngIf="rating.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Date</mat-label>
+            <input matInput
+                   type="date"
+                   #birthday="ngModel"
+                   name="date"
+                   [(ngModel)]="Review.review_date"
+                   required>
+            <mat-error *ngIf="birthday.invalid">
+                        <span *ngIf="birthday.errors?.['required']">
                             Campo obligatorio
                         </span>
             </mat-error>

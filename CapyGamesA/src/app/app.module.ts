@@ -12,6 +12,9 @@ import { AuthModule } from './modules/Customer/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import {ReviewService} from "./modules/Customer/review/services/review.service";
 import {FormsModule} from "@angular/forms";
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -20,6 +23,10 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    MatTableModule,
+    MatInputModule,
+    MatButtonModule,
     FormsModule,
     AppRouterModule,
     LayoutModule,

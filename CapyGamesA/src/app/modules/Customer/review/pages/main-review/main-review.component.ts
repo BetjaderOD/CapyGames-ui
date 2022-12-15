@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
+import {MatSort, Sort} from "@angular/material/sort";
 import {Review} from "../../types/review";
 import {MatTableDataSource} from "@angular/material/table";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
@@ -14,12 +14,16 @@ import {AddReviewComponent} from "../add-review/add-review-component";
   styleUrls: ['./main-review.component.css'],
 })
 export class MainReviewComponent implements OnInit {
+  rev: Review []=[]
   displayedColumns: string[] = [
-    '#',
-    'date',
-    'title',
-    'description',
-    'rating',
+    'id',
+    'customer_id',
+    'game_id',
+    'review_date',
+    'review_title',
+    'review_description',
+    'review_rating',
+
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -47,17 +51,34 @@ export class MainReviewComponent implements OnInit {
 
 
   openDialog(
-    enterAnimationDuration: string,
-    exitAnimationDuration: string
-  ): void {
+    enterAnimation: string,
+    exitAnimation: string
+  ) {// ng g c modules/personal/pages/addPersonal
     const modalRef = this.dialog.open(AddReviewComponent, {
-      width: "50%",
-      enterAnimationDuration,
-      exitAnimationDuration,
+      width: '60%',
+      enterAnimationDuration: enterAnimation,
+      exitAnimationDuration: exitAnimation,
+      disableClose: true
     });
     modalRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
+      this.findAll();
+      this.reviewService.review = {
+        id: 1,
+        customer_id: 1,
+        game_id: 1,
+        review_date: '',
+        review_title: '',
+        review_description: '',
+        review_rating: 0,
+      };
     });
+  }
+  announceSortChange(sort: Sort) {
+    if (sort.direction) {
+      this._liveAnnouncer.announce(`Sorted ${ sort.direction } ending`);
+    } else {
+      this._liveAnnouncer.announce(`Sort cleared`);
+    }
   }
 }
 

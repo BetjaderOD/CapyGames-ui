@@ -11,11 +11,13 @@ export class ReviewService{
   private resena: Review [] = [];
   edit: boolean = false;
     review: Review = {
-      id: 0,
-      date: '',
-      title: '',
-      description: '',
-      rating: 0,
+      id: 1,
+      customer_id: 1,
+      game_id: 1,
+      review_date: '',
+      review_title: '',
+      review_description: '',
+      review_rating: 0,
     };
 
     get reviews(){
@@ -27,7 +29,7 @@ export class ReviewService{
 
     findAll(){
       this.loading = true
-      return this.http.get<Review[]>(`${APP_URL}review`);
+      return this.http.get<Review[]>(`${APP_URL}reviews`);
     }
 
     save(review: Review){
