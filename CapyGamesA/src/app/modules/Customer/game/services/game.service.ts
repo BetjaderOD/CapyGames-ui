@@ -12,6 +12,7 @@ export class GameService {
     private juego: Game [] = [];
     game: Game = {
         id: 0,
+        game_id: 0,
         game_name: '',
         game_genre: '',
         game_price: 0,

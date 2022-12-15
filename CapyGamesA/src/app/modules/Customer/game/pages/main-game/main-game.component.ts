@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../types/game';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/services/general.service';
 import { CartService } from '../../../cart/service/cart.service';
 import { Cart } from '../../../cart/types/cart';
 import { Customer } from '../../../../../types/customer';
@@ -35,7 +36,7 @@ export class MainGameComponent implements OnInit {
       console.log(response);
     });
   }
-  
+
   addCart(game: Game) {
     this._gameService.addToCart(game);
   }
