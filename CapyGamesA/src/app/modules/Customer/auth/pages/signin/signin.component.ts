@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CustomerLogin } from '../../types/user';
 import { AuthService } from '../../service/auth.service';
 import { LoginStateService } from '../../../../../services/login-state.service';
@@ -23,13 +23,21 @@ export class SigninComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private loginState: LoginStateService
+    private loginState: LoginStateService,
+    private activeRoute: ActivatedRoute
   ) {
+    this.activeRoute.url.subscribe((url) => {
+      console.log(url[0]);
+    });
     this.loginState.setIsLogged = !!localStorage.getItem('token');
-    if (!this.loginState.isLogged) this.router.navigateByUrl("/");
+    if (!this.loginState.isLogged) this.router.navigateByUrl('/');
   }
 
   signin() {
     this.authService.login(this.customer);
+  }
+  signup(){
+    this.router.navigateByUrl('/signup');
+    this.loginState.signinOrsignUp = false;
   }
 }

@@ -7,6 +7,7 @@ import { GetGameComponent } from './pages/get-game/get-game.component';
 @NgModule({
   declarations: [MainGameComponent, GetGameComponent],
   imports: [CommonModule, ...materialModules],
+  //ReviewModule
   exports: [MainGameComponent, GetGameComponent],
 })
 export class GameModule {}

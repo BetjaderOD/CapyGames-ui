@@ -5,6 +5,7 @@ import { Session } from '../types/session';
   providedIn: 'root',
 })
 export class LoginStateService {
+  signinOrsignUp = true;
   private session: Session = {
     logged: true,
   };

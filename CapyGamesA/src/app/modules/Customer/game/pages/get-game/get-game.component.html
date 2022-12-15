@@ -24,17 +24,27 @@
         <div id="actions">
           <div class="row">
             <div class="col">
-              <button mat-raised-button color="primary" (click)="addCart(game!)">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="addCart(game!)"
+              >
                 <mat-icon>shopping_cart</mat-icon>Add to cart
               </button>
             </div>
-            <div class="col" style="width: 200px;">
-              <p id="stockContent" style="margin-left: 15px;">Stock: {{ game?.game_stock }}</p>
+            <div class="col" style="width: 200px">
+              <p id="stockContent" style="margin-left: 15px">
+                Stock: {{ game?.game_stock }}
+              </p>
             </div>
           </div>
         </div>
       </mat-card-actions>
     </div>
-    
   </div>
 </mat-card>
+
+<!--
+    <app-main-review></app-main-review>
+-->
+

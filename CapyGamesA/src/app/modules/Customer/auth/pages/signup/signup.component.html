@@ -1,66 +1,46 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 text-center">
-        <mat-card
-          class="position-absolute top-50 start-50 translate-middle justify-content-center"
-          style="width: 35%"
-        >
-          <mat-card-header class="row mt-1">
-            <div class="col text-center">
-              <img
-                [src]="logoPath"
-                alt="Logo"
-                mat-card-image
-                style="width: 40%; height: auto; display: inline"
-              />
-              <mat-card-title style="font-size: 30px;">CapyGames</mat-card-title>
-              <mat-card-subtitle style="font-size: 20px; margin-top: 10px;">Sign Up</mat-card-subtitle>
+  <div class="row">
+    <div class="col-12 text-center">
+      <mat-card
+        class="position-absolute top-50 start-50 translate-middle justify-content-center"
+        style="width: 35%"
+      >
+        <mat-card-header class="row mt-1">
+          <div class="col text-center">
+            <img
+              [src]="logoPath"
+              alt="Logo"
+              mat-card-image
+              style="width: 40%; height: auto; display: inline"
+            />
+            <mat-card-title style="font-size: 30px">CapyGames</mat-card-title>
+            <mat-card-subtitle style="font-size: 20px; margin-top: 10px"
+              >Sign Up</mat-card-subtitle
+            >
+          </div>
+        </mat-card-header>
+        <form #loginForm="ngForm" novalidate (submit)="signup()">
+          <mat-card-content class="row">
+            <div class="col-12 mb-3">
+              <mat-form-field appearance="fill" class="w-50">
+                <mat-label>Full Name</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  name="customer_name"
+                  #customer_name="ngModel"
+                  [(ngModel)]="customer.customer_name"
+                  placeholder="Full Name"
+                />
+                <mat-error *ngIf="customer_name.invalid">
+                  <span *ngIf="customer_email.errors?.['required']"
+                    >Campo Obligatorio</span
+                  >
+                </mat-error>
+              </mat-form-field>
             </div>
-          </mat-card-header>
-          <form #loginForm="ngForm" novalidate (submit)="signup()">
-            <mat-card-content class="row">
-                <div class="col-12 mb-3">
-                    <mat-form-field appearance="fill" class="w-50">
-                      <mat-label>Full Name</mat-label>
-                      <input
-                        type="text"
-                        matInput
-                        required
-                        name="customer_name"
-                        #customer_name="ngModel"
-                        [(ngModel)]="customer.customer_name"
-                        placeholder="Full Name"
-                      />
-                      <mat-error *ngIf="customer_name.invalid">
-                        <span *ngIf="customer_email.errors?.['required']"
-                          >Campo Obligatorio</span
-                        >
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-              <div class="col-12 mb-3">
-                <mat-form-field appearance="fill" class="w-50">
-                  <mat-label>Email</mat-label>
-                  <input
-                    type="email"
-                    matInput
-                    required
-                    name="customer_email"
-                    #customer_email="ngModel"
-                    [(ngModel)]="customer.customer_email"
-                    placeholder="ejemplo@gmail.com"
-                  />
-                  <mat-error *ngIf="customer_email.invalid">
-                    <span *ngIf="customer_email.errors?.['required']"
-                      >Campo Obligatorio</span
-                    >
-                    <span *ngIf="customer_email.errors?.['email']"
-                      >Ingresa correo valido</span
-                    >
-                  </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-12 mb-3">
+            <div class="col-12 mb-3">
                 <mat-form-field appearance="fill" class="w-50">
                   <mat-label>Password</mat-label>
                   <input
@@ -79,64 +59,85 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
-                <mat-form-field appearance="fill" class="w-50">
-                  <mat-label>Address</mat-label>
-                  <input
-                    type="text"
-                    matInput
-                    required
-                    name="customer_address"
-                    #customer_address="ngModel"
-                    [(ngModel)]="customer.customer_address"
-                    placeholder="Calle falsa 123"
-                  />
-                  <mat-error *ngIf="customer_address.invalid">
-                    <span *ngIf="customer_address.errors?.['required']"
-                      >Campo Obligatorio</span
-                    >
-                  </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-12 mb-3">
-                <mat-form-field appearance="fill" class="w-50">
-                  <mat-label>Phone</mat-label>
-                  <input
-                    type="text"
-                    matInput
-                    required
-                    name="customer_phone"
-                    #customer_phone="ngModel"
-                    [(ngModel)]="customer.customer_phone"
-                    placeholder="123456789"
-                  />
-                  <mat-error *ngIf="customer_phone.invalid">
-                    <span *ngIf="customer_phone.errors?.['required']"
-                      >Campo Obligatorio</span
-                    >
-                  </mat-error>
-                </mat-form-field>
-              </div>
-            </mat-card-content>
-            <mat-card-actions class="row">
-              <div class="col text-center">
-                <button
-                  type="submit"
-                  mat-flat-button
-                  class="w-50"
-                  color="primary"
-                  [disabled]="loginForm.invalid || isLoading"
-                >
-                    Sign Up
-                </button>
-              </div>
-            </mat-card-actions>
-            <mat-card-footer *ngIf="isLoading">
-              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            </mat-card-footer>
-          </form>
-        </mat-card>
-      </div>
+            <div class="col-12 mb-3">
+              <mat-form-field appearance="fill" class="w-50">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  required
+                  name="customer_email"
+                  #customer_email="ngModel"
+                  [(ngModel)]="customer.customer_email"
+                  placeholder="ejemplo@gmail.com"
+                />
+                <mat-error *ngIf="customer_email.invalid">
+                  <span *ngIf="customer_email.errors?.['required']"
+                    >Campo Obligatorio</span
+                  >
+                  <span *ngIf="customer_email.errors?.['email']"
+                    >Ingresa correo valido</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 mb-3">
+              <mat-form-field appearance="fill" class="w-50">
+                <mat-label>Address</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  name="customer_address"
+                  #customer_address="ngModel"
+                  [(ngModel)]="customer.customer_address"
+                  placeholder="Calle falsa 123"
+                />
+                <mat-error *ngIf="customer_address.invalid">
+                  <span *ngIf="customer_address.errors?.['required']"
+                    >Campo Obligatorio</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 mb-3">
+              <mat-form-field appearance="fill" class="w-50">
+                <mat-label>Phone</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  required
+                  name="customer_phone"
+                  #customer_phone="ngModel"
+                  [(ngModel)]="customer.customer_phone"
+                  placeholder="123456789"
+                />
+                <mat-error *ngIf="customer_phone.invalid">
+                  <span *ngIf="customer_phone.errors?.['required']"
+                    >Campo Obligatorio</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="row">
+            <div class="col text-center">
+              <button
+                type="submit"
+                mat-flat-button
+                class="w-50"
+                color="primary"
+                [disabled]="loginForm.invalid || isLoading"
+              >
+                Sign Up
+              </button>
+            </div>
+          </mat-card-actions>
+          <mat-card-footer *ngIf="isLoading">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          </mat-card-footer>
+        </form>
+      </mat-card>
     </div>
   </div>
-  
+</div>

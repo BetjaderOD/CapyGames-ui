@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -13,7 +13,10 @@ import { Customer } from 'src/app/types/customer';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  logoPath = "../../../../assets/img/capiLogo.png"
+  logoPath = '../../../../assets/img/capiLogo.png';
+  get route() {
+    return this.loginStateService.signinOrsignUp;
+  }
 
   customers: Customer[] = [];
 
@@ -31,6 +34,7 @@ export class NavigationComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
+    private activeRoute: ActivatedRoute,
     private loginStateService: LoginStateService,
     private readonly _customerService: CustomerService
   ) {
@@ -48,10 +52,10 @@ export class NavigationComponent {
     this._customerService.findById(id).subscribe((response) => {
       this.customers = [response];
       this._customerService.loading = false;
-    })
+    });
   }
 
   profile(customer: Customer) {
-    this.findById(customer.id)
+    this.findById(customer.id);
   }
 }

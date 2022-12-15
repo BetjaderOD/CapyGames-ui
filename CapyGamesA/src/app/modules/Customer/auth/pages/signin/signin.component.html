@@ -74,14 +74,25 @@
               >
                 Log in
               </button>
+              <button
+                style="margin-left: 0.1px; margin-top: 20px"
+                mat-flat-button
+                class="w-50"
+                color="primary"
+                type="button"
+                (click)="signup()"
+              >
+                Register
+            </button>
+
               <a
                 style="margin-left: 0.1px; margin-top: 20px"
                 mat-flat-button
                 class="w-50"
                 color="primary"
-                [routerLink]="['signup']"
+                [routerLink]="['forgot-password']"
               >
-                Register
+                Forgot Password
               </a>
             </div>
           </mat-card-actions>

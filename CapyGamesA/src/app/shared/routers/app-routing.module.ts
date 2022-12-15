@@ -10,8 +10,8 @@ import { SignupComponent } from '../../modules/Customer/auth/pages/signup/signup
 //rutas de navegacion
 const routes: Routes = [
   { path: '', component: MainGameComponent, pathMatch: 'full' },
-  { path: 'auth', component: SigninComponent, pathMatch: 'full' },
-  { path: 'signup', component: SignupComponent, pathMatch: 'full'},
+  { path: 'auth', component: SigninComponent },
+  { path: 'signup', component: SignupComponent},
   { path: 'games', component: MainGameComponent },
   { path: 'games/:id', component: GetGameComponent },
   { path: 'cart', component: MainCartComponent },

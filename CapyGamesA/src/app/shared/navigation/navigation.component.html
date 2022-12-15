@@ -38,9 +38,6 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>person</mat-icon>Profile
-            </button>
             <button mat-menu-item (click)="logout()">
               <mat-icon>logout</mat-icon>Logout
             </button>
@@ -57,7 +54,9 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-<div *ngIf="!session.logged">
+<div *ngIf="!session.logged && route">
   <app-signin></app-signin>
 </div>
-
+<div *ngIf="!session.logged && !route">
+  <app-signup></app-signup>
+</div>
