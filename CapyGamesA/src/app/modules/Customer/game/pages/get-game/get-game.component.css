@@ -1,32 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 
 #title {
     font-family: 'Press Start 2P', cursive;
     font-size: 30px;
-    padding-left: 40px;
+    margin-left: 100px;
     margin-top: 20px;
 }
 
 #subtitle {
-    padding-left: 40px;
+    margin-left: 102px;
     font-size: 20px;
     margin-top: 5px;
 }
 
 img {
-    width: 586px;
-    height: 320px;
+    width: 590px;
+    
 }
 
 #divImg {
     margin-top: 20px;
-    margin-left: 20px;
-    width: 586px;
     border-radius: 12px;
-    border: 1px solid black;
 }
 
-#content {
-    width: 200px;
-    border: 1px solid black;
+#priceContent {
+    font-size: 30px;
+    margin-right: 60px;
+    margin-top: 20px;
+    text-align: end;
+}
+
+#descriptionContent {
+    margin-right: 70px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 25px;
+}
+
+#actions {
+    margin-top: 190px;
+}
+
+#stockContent {
+    margin-right: 70px;
+    font-size: 15px;
+    text-align: end;
 }

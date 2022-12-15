@@ -1,29 +1,40 @@
-<mat-card>
-    <mat-card-header class="row">
-      <div>
-        <mat-card-title id="title">{{ game?.game_name }}</mat-card-title>
-        <mat-card-subtitle id="subtitle">{{ game?.game_genre }}</mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <div class="row"></div>
-    <div class="col" id="divImg">
+<mat-card class="mt-5 mb-5" style="padding-bottom: 40px">
+  <mat-card-header>
+    <div>
+      <mat-card-title id="title">{{ game?.game_name }}</mat-card-title>
+      <mat-card-subtitle id="subtitle">{{
+        game?.game_genre
+      }}</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <div class="row">
+    <div class="col" id="divImg" align="center">
       <img
-      mat-card-image
-      src="../../../../../../assets/img/{{ game?.game_image }}"
-      alt="La imagen no se pudo cargar"
-    />  
+        mat-card-image
+        src="../../../../../../assets/img/{{ game?.game_image }}"
+        alt="La imagen no se pudo cargar"
+      />
     </div>
-    <div class="col" id="content">
-      <mat-card-content style="text-align: center;">
-        <p style="font-size: 17px; margin-top: 15px;">${{ game?.game_price }}</p>
+    <div class="col">
+      <mat-card-content>
+        <p id="descriptionContent">{{ game?.game_description }}</p>
+        <p id="priceContent">${{ game?.game_price }}</p>
       </mat-card-content>
+      <mat-card-actions>
+        <div id="actions">
+          <div class="row">
+            <div class="col">
+              <button mat-raised-button color="primary" (click)="addCart(game!)">
+                <mat-icon>shopping_cart</mat-icon>Add to cart
+              </button>
+            </div>
+            <div class="col" style="width: 200px;">
+              <p id="stockContent" style="margin-left: 15px;">Stock: {{ game?.game_stock }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-actions>
     </div>
-    <mat-card-actions>
-      <div style="margin-left: 62px; margin-top: 10px;">
-        <button mat-raised-button color="primary" (click)="addCart(game!)">
-          <mat-icon>shopping_cart</mat-icon>Add to cart
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-  
+    
+  </div>
+</mat-card>

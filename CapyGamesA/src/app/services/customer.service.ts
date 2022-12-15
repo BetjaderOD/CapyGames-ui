@@ -30,6 +30,10 @@ export class CustomerService {
         return this.http.get<Customer>(`${APP_URL}customers/${id}`);
     }
 
+    signUp(customer: Customer) {
+        return this.http.post<Customer>(`${APP_URL}customers`, customer);
+    }
+
     get Customer() {
         return this.people
     }

@@ -5,11 +5,13 @@ import { MainGameComponent } from '../../modules/Customer/game/pages/main-game/m
 import { GetGameComponent } from '../../modules/Customer/game/pages/get-game/get-game.component';
 import { MainCartComponent } from '../../modules/Customer/cart/pages/main-cart/main-cart.component';
 import { SigninComponent } from '../../modules/Customer/auth/pages/signin/signin.component';
+import { SignupComponent } from '../../modules/Customer/auth/pages/signup/signup.component';
 
 //rutas de navegacion
 const routes: Routes = [
   { path: '', component: MainGameComponent, pathMatch: 'full' },
-  { path: 'auth', component: SigninComponent },
+  { path: 'auth', component: SigninComponent, pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent, pathMatch: 'full'},
   { path: 'games', component: MainGameComponent },
   { path: 'games/:id', component: GetGameComponent },
   { path: 'cart', component: MainCartComponent },
