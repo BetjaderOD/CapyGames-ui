@@ -60,8 +60,17 @@ export class MainOrderComponent implements OnInit {
     });
   }
 
-  viewOrder(order: Order) {
-     this.orderService.order = order;
+  payOrder(id: number) {
+    this.orderService.findById(id).subscribe((res) => {
+      this.orderService.order = res;
+      this.orderService.edit = true;
+      this.router.navigate(['/order/get-order']);
+    });
+  }
+
+  announceSortChange($event: Sort) {
+    const announcement = `Sorted by ${$event.active} in ${$event.direction} order.`;
+    this._liveAnnouncer.announce(announcement);
   }
 }
 

@@ -4,47 +4,37 @@
         <div class="col-md-12">
             <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Order</h4>
+                <h4 class="card-title text-center mt-3">Order</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                <table class="table">
-                    <thead class=" text-primary">
-                    <th>
-                        Order ID
-                    </th>
-                    <th>
-                        Order Date
-                    </th>
-                    <th>
-                        Order Status
-                    </th>
-                    <th>
-                        Order Total
-                    </th>
-                    <th>
-                        Action
-                    </th>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let order of order">
-                        <td>
-                        {{order.orderId}}
-                        </td>
-                        <td>
-                        {{order.orderDate}}
-                        </td>
-                        <td>
-                        {{order.orderStatus}}
-                        </td>
-                        <td>
-                        {{order.orderTotal}}
-                        </td>
-                        <td>
-                                    <button class="btn btn-primary" (click)="viewOrder(order.orderId)">View</button>
-                        </td>
-                    </tr>
-                    </tbody>
+                <table class="table"
+                       mat-table
+                       [dataSource]="order"
+                       matSort
+                       (matSortChange)="announceSortChange($event)"
+                >
+                  <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="date" >
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.order_date}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                    <td mat-cell *matCellDef="let element">{{element.order_status}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+                    <td mat-cell *matCellDef="let element">{{element.total}}</td>
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-raised-button color="primary" (click)="payOrder(element.id)">View</button>
+                    </td>
+                  </ng-container>
                 </table>
                 </div>
             </div>

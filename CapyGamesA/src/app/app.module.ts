@@ -18,6 +18,7 @@ import { OrderModule } from './modules/Customer/order/order.module';
     AppComponent,
     NavigationComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRouterModule,
