@@ -15,13 +15,7 @@ export class CartService {
     id: 0,
     customer_id: 0,
     game_id: 0,
-<<<<<<< HEAD
-    cart_quantity: 0,
-    
-=======
     cart_quantity: 1,
-    customers_id: 0,
->>>>>>> addCart
   }
 
   getCart() {
