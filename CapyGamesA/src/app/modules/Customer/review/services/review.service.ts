@@ -11,9 +11,9 @@ export class ReviewService{
   private resena: Review [] = [];
   edit: boolean = false;
     review: Review = {
-      id: 1,
-      customer_id: 1,
-      game_id: 1,
+      id: 0,
+      customer_id: 0,
+      game_id: 0,
       review_date: '',
       review_title: '',
       review_description: '',

@@ -1,54 +1,55 @@
-import {Component, OnInit} from "@angular/core";
-import {Review} from "../../types/review";
-import {ReviewService} from "../../services/review.service";
-import {DialogRef} from "@angular/cdk/dialog";
+import { Component, OnInit } from '@angular/core';
+import { Review } from '../../types/review';
+import { ReviewService } from '../../services/review.service';
+import { DialogRef } from '@angular/cdk/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-review',
-  templateUrl: './add-review-component.html'
+  templateUrl: './add-review-component.html',
 })
-export class AddReviewComponent implements OnInit{
-  Review: Review;
-  positions: any[]=[];
-  loadedFile: string | undefined
+export class AddReviewComponent implements OnInit {
+  Review!: Review;
+  positions: any[] = [];
+  loadedFile: string | undefined;
 
   // get edit(){
   //   return this.ReviewServices.edit;
   // }
-  constructor(private ReviewServices: ReviewService,
-  public modalRef: DialogRef<AddReviewComponent>) {
-    this.Review = this.ReviewServices.review;
+  constructor(
+    private ReviewServices: ReviewService,
+    public modalRef: DialogRef<AddReviewComponent>
+  ) {
 
   }
-  ngOnInit() :void{
-    this.ReviewServices.findAll()
-      .subscribe((response)=> {
-        this.positions = response;
-      });
+  ngOnInit(): void {
+    this.Review = this.ReviewServices.review;
+    this.ReviewServices.findAll().subscribe((response) => {
+      this.positions = response;
+    });
   }
 
   // getByReview(){
   //   this.ReviewServices.
   // }
 
-  saveReview(){
+  saveReview() {
     console.log(this.Review);
     // if(this.ReviewServices.edit){
-      this.ReviewServices.update(this.Review)
-        .subscribe((response)=>{
-          console.log(response)
-          this.ReviewServices.loading = false;
-          this.modalRef.close();
-        })
+    this.ReviewServices.update(this.Review).subscribe((response) => {
+      console.log(response);
+      this.ReviewServices.loading = false;
+      this.modalRef.close();
+    });
     // }
   }
-  previewFile(event:any){
-    const {target} = event;
+  previewFile(event: any) {
+    const { target } = event;
     console.log(target.value);
-    const  reader = new FileReader();
+    const reader = new FileReader();
     reader.readAsDataURL(target.files[0]);
-    reader.onloadend = (result)=>{
+    reader.onloadend = (result) => {
       this.loadedFile = result.target!.result + '';
-    }
+    };
   }
 }

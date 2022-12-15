@@ -7,12 +7,12 @@
           <mat-label>Title</mat-label>
           <input matInput
                  placeholder="Titulo"
-                 #title="ngModel"
+                 #review_title="ngModel"
                  name="Titulo"
                  [(ngModel)]="Review.review_title"
                  required>
-          <mat-error *ngIf="title.invalid">
-                        <span *ngIf="title.errors?.['required']">
+          <mat-error *ngIf="review_title.invalid">
+                        <span *ngIf="review_title.errors?.['required']">
                             Campo obligatorio
                         </span>
           </mat-error>
@@ -21,13 +21,13 @@
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Description</mat-label>
             <input matInput
-                   placeholder="Description"
-                   #description="ngModel"
+                   placeholder="review_description"
+                   #review_description="ngModel"
                    name="surname"
                    [(ngModel)]="Review.review_description"
                    required>
-            <mat-error *ngIf="description.invalid">
-                        <span *ngIf="description.errors?.['required']">
+            <mat-error *ngIf="review_description.invalid">
+                        <span *ngIf="review_description.errors?.['required']">
                             Campo obligatorio
                         </span>
             </mat-error>
@@ -38,14 +38,14 @@
             <mat-label>Rating</mat-label>
             <input matInput
                    type="number"
-                   #rating="ngModel"
-                   name="Rating"
+                   #review_rating="ngModel"
+                   name="review_rating"
                    max="5"
                    min="0"
                    [(ngModel)]="Review.review_rating"
                    required>
-            <mat-error *ngIf="rating.invalid">
-                        <span *ngIf="rating.errors?.['required']">
+            <mat-error *ngIf="review_rating.invalid">
+                        <span *ngIf="review_rating.errors?.['required']">
                             Campo obligatorio
                         </span>
             </mat-error>
@@ -56,12 +56,12 @@
             <mat-label>Date</mat-label>
             <input matInput
                    type="date"
-                   #birthday="ngModel"
-                   name="date"
+                   #review_date="ngModel"
+                   name="review_date"
                    [(ngModel)]="Review.review_date"
                    required>
-            <mat-error *ngIf="birthday.invalid">
-                        <span *ngIf="birthday.errors?.['required']">
+            <mat-error *ngIf="review_date.invalid">
+                        <span *ngIf="review_date.errors?.['required']">
                             Campo obligatorio
                         </span>
             </mat-error>

@@ -7,6 +7,7 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
 import {ReviewService} from "../../services/review.service";
 import {AddReviewComponent} from "../add-review/add-review-component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-review',
@@ -14,25 +15,28 @@ import {AddReviewComponent} from "../add-review/add-review-component";
   styleUrls: ['./main-review.component.css'],
 })
 export class MainReviewComponent implements OnInit {
-  rev: Review []=[]
+  rev: Review[] = [];
+  game: any = {};
   displayedColumns: string[] = [
-    'id',
-    'customer_id',
-    'game_id',
-    'review_date',
+    '#',
     'review_title',
     'review_description',
+    'review_date',
     'review_rating',
-
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  review!: MatTableDataSource<Review>;
+  reviews!: MatTableDataSource<Review>;
 
   constructor(private readonly reviewService: ReviewService,
               private _liveAnnouncer: LiveAnnouncer,
-              public dialog: MatDialog,) {
+    public dialog: MatDialog,
+    public route: ActivatedRoute) {
+    this.route.params.subscribe((params) => {
+      this.reviewService.review.game_id = Number(params['id']);
+      console.log(params);
+    });
   }
 
   ngOnInit() {
@@ -41,10 +45,10 @@ export class MainReviewComponent implements OnInit {
 
   findAll() {
     this.reviewService.findAll().subscribe((response) => {
-      this.review= new MatTableDataSource<Review>(response);
+      this.reviews= new MatTableDataSource<Review>(response);
       this.reviewService.loading = false;
-      this.review.paginator = this.paginator;
-      this.review.sort = this.sort;
+      this.reviews.paginator = this.paginator;
+      this.reviews.sort = this.sort;
     });
   }
 
