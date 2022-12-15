@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './add-review-component.html',
 })
 export class AddReviewComponent implements OnInit {
-  Review!: Review;
+  review!: Review;
   positions: any[] = [];
   loadedFile: string | undefined;
 
@@ -17,14 +17,14 @@ export class AddReviewComponent implements OnInit {
   //   return this.ReviewServices.edit;
   // }
   constructor(
-    private ReviewServices: ReviewService,
+    private reviewServices: ReviewService,
     public modalRef: DialogRef<AddReviewComponent>
   ) {
 
   }
   ngOnInit(): void {
-    this.Review = this.ReviewServices.review;
-    this.ReviewServices.findAll().subscribe((response) => {
+    this.review = this.reviewServices.review;
+    this.reviewServices.findAll().subscribe((response) => {
       this.positions = response;
     });
   }
@@ -34,11 +34,11 @@ export class AddReviewComponent implements OnInit {
   // }
 
   saveReview() {
-    console.log(this.Review);
+    console.log(this.review);
     // if(this.ReviewServices.edit){
-    this.ReviewServices.update(this.Review).subscribe((response) => {
+    this.reviewServices.update(this.review).subscribe((response) => {
       console.log(response);
-      this.ReviewServices.loading = false;
+      this.reviewServices.loading = false;
       this.modalRef.close();
     });
     // }

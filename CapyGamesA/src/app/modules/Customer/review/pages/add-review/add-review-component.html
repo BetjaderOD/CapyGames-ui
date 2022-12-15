@@ -5,65 +5,76 @@
       <div class="col">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Title</mat-label>
-          <input matInput
-                 placeholder="Titulo"
-                 #review_title="ngModel"
-                 name="Titulo"
-                 [(ngModel)]="Review.review_title"
-                 required>
+          <input
+            matInput
+            type="text"
+            required
+            placeholder="Titulo"
+            name="review_title"
+            #review_title="ngModel"
+            [(ngModel)]="review.review_title"
+            required
+          />
           <mat-error *ngIf="review_title.invalid">
-                        <span *ngIf="review_title.errors?.['required']">
-                            Campo obligatorio
-                        </span>
+            <span *ngIf="review_title.errors?.['required']">
+              Campo obligatorio
+            </span>
           </mat-error>
         </mat-form-field>
         <div class="col">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Description</mat-label>
-            <input matInput
-                   placeholder="review_description"
-                   #review_description="ngModel"
-                   name="surname"
-                   [(ngModel)]="Review.review_description"
-                   required>
+            <input
+              matInput
+              required
+              placeholder="Description"
+              name="review_description"
+              #review_description="ngModel"
+              [(ngModel)]="review.review_description"
+              required
+            />
             <mat-error *ngIf="review_description.invalid">
-                        <span *ngIf="review_description.errors?.['required']">
-                            Campo obligatorio
-                        </span>
+              <span *ngIf="review_description.errors?.['required']">
+                Campo obligatorio
+              </span>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Rating</mat-label>
-            <input matInput
-                   type="number"
-                   #review_rating="ngModel"
-                   name="review_rating"
-                   max="5"
-                   min="0"
-                   [(ngModel)]="Review.review_rating"
-                   required>
+            <input
+              matInput
+              type="number"
+              name="review_rating"
+              #review_rating="ngModel"
+              max="5"
+              min="0"
+              [(ngModel)]="review.review_rating"
+              required
+            />
             <mat-error *ngIf="review_rating.invalid">
-                        <span *ngIf="review_rating.errors?.['required']">
-                            Campo obligatorio
-                        </span>
+              <span *ngIf="review_rating.errors?.['required']">
+                Campo obligatorio
+              </span>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Date</mat-label>
-            <input matInput
-                   type="date"
-                   #review_date="ngModel"
-                   name="review_date"
-                   [(ngModel)]="Review.review_date"
-                   required>
+            <input
+              matInput
+              type="date"
+              name="review_date"
+              #review_date="ngModel"
+              [(ngModel)]="review.review_date"
+              required
+            />
             <mat-error *ngIf="review_date.invalid">
-                        <span *ngIf="review_date.errors?.['required']">
-                            Campo obligatorio
-                        </span>
+              <span *ngIf="review_date.errors?.['required']">
+                Campo obligatorio
+              </span>
             </mat-error>
           </mat-form-field>
         </div>
@@ -75,7 +86,7 @@
       <mat-icon>close</mat-icon>
       Cancel
     </button>
-    <button mat-button type="submit"[disabled]="reviewForm.invalid">
+    <button mat-button type="submit" [disabled]="reviewForm.invalid">
       <mat-icon>check</mat-icon>
       Save
     </button>

@@ -17,8 +17,6 @@ const routes: Routes = [
   { path: 'games', component: MainGameComponent },
   { path: 'games/:id', component: GetGameComponent },
   { path: 'cart', component: MainCartComponent },
-  { path: 'review', component: MainReviewComponent },
-  { path: 'review/:id', component: MainReviewComponent },
   { path: 'getGame', component: GetGameComponent },
   // { path: 'cart', component: Component },
   //{ path: 'orders', component: Component },
