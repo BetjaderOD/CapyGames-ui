@@ -72,26 +72,6 @@ export class MainReviewComponent implements OnInit {
     });
   }
 
-  findByIdCustomer(id: number) {
-    const token = localStorage.getItem('token') + '';
-    const decoded = JSON.parse(window.atob(token.split('.')[1]));
-    console.log(decoded);
-    /*
-    console.log(token);
-    const base64Url = token?.split('.')[1];
-    const base64 = base64Url?.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(window.atob(base64!).split('').map(c => {
-      return '% ' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    console.log(JSON.parse(jsonPayload));
-    */
-    this._generalServices.findById(decoded.id).subscribe((data: any) => {
-      this.cart = data;
-      console.log(data);
-    });
-  }
-
   openDialog(enterAnimation: string, exitAnimation: string) {
     // ng g c modules/personal/pages/addPersonal
     const modalRef = this.dialog.open(AddReviewComponent, {
@@ -104,7 +84,6 @@ export class MainReviewComponent implements OnInit {
       this.findAll();
       this.reviewService.review = {
         id: 0,
-        customer_id: 0,
         game_id: 0,
         review_date: '',
         review_title: '',

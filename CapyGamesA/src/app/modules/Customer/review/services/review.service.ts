@@ -12,7 +12,6 @@ export class ReviewService{
   edit: boolean = false;
     review: Review = {
       id: 0,
-      customer_id: 0,
       game_id: 0,
       review_date: '',
       review_title: '',
@@ -36,9 +35,6 @@ export class ReviewService{
       this.loading = true;
       return this.http.post<any>(`${APP_URL}reviews`,review)
     }
-    update(review: Review) {
-      this.loading = true;
-      return this.http.post<any>(`${ APP_URL }reviews`,review);
-    }
+
 
 };

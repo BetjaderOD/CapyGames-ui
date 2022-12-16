@@ -36,7 +36,7 @@ export class AddReviewComponent implements OnInit {
   saveReview() {
     console.log(this.review);
     // if(this.ReviewServices.edit){
-    this.reviewServices.update(this.review).subscribe((response) => {
+    this.reviewServices.save(this.review).subscribe((response) => {
       console.log(response);
       this.reviewServices.loading = false;
       this.modalRef.close();
