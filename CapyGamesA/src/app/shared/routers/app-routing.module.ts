@@ -8,6 +8,8 @@ import { SigninComponent } from '../../modules/Customer/auth/pages/signin/signin
 import { SignupComponent } from '../../modules/Customer/auth/pages/signup/signup.component';
 import { MainReviewComponent } from '../../modules/Customer/review/pages/main-review/main-review.component';
 import { AddReviewComponent } from '../../modules/Customer/review/pages/add-review/add-review-component';
+import { MatCardImage } from '@angular/material/card';
+import { MainGamesComponent } from '../../modules/admin/pages/main-games/main-games.component';
 
 //rutas de navegacion
 const routes: Routes = [
@@ -15,6 +17,7 @@ const routes: Routes = [
   { path: 'auth', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'games', component: MainGameComponent },
+  { path: 'admin', component:MainGamesComponent},
   { path: 'games/:id', component: GetGameComponent },
   { path: 'cart', component: MainCartComponent },
   { path: 'review', component: MainReviewComponent },

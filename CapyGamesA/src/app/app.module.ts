@@ -18,11 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MainGamesComponent } from './modules/admin/pages/main-games/main-games.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent],
+  declarations: [AppComponent, NavigationComponent, MainGamesComponent ],
   imports: [
     BrowserModule,
     FormsModule,

@@ -8,6 +8,7 @@ import { APP_URL } from 'src/app/services/base-url.app';
 })
 
 export class GameService {
+
     loading: boolean = false;
     private juego: Game [] = [];
     game: Game = {
@@ -20,6 +21,7 @@ export class GameService {
         game_description: '',
         game_stock: 0,
     };
+
 
     get Games() {
         return [...this.juego];

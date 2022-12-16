@@ -1,0 +1,83 @@
+
+<mat-card class="mt-5 mb-5">
+  <mat-card-header class="row">
+    <div class="col">
+      <mat-card-title>Games</mat-card-title>
+    </div>
+    <div class="col text-end">
+      <button
+        mat-mini-fab
+        aria-label="Games"
+        (click)="openDialog('0ms', '0ms')"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    </mat-card-header>
+  <mat-card-content>
+    <table class="col-12" mat-table [dataSource]="games" matSort (matSortChange)="announceSortChange($event)">
+
+      <ng-container matColumnDef="#">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="game_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="game_genere">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Genere</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_genere }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="game_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_price }}</td>
+      </ng-container>
+      <ng-container matColumnDef="game_image">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Image</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_image }}</td>
+      </ng-container>
+      <ng-container matColumnDef="game_description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_description }}</td>
+      </ng-container>
+      <ng-container matColumnDef="game_stock">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Game Stock</th>
+        <td mat-cell *matCellDef="let element">{{ element.game_stock }}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <button
+            mat-mini-fab
+            aria-label="Edit"
+            (click)="openDialog(element)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            aria-label="Delete"
+            (click)="delete()"
+          > -->
+            <!-- <mat-icon>delete</mat-icon>
+          </button> -->
+        </td>
+      <!-- </ng-container>
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [length]="game.length"
+      [pageSize]="10"
+      [pageSizeOptions]="[10, 20, 50]"
+      ></mat-paginator>
+  </mat-card-content>
+</mat-card> -->
+
+
