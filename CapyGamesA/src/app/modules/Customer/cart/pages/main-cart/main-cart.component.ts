@@ -1,24 +1,15 @@
 import { Component } from '@angular/core';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-
-import { OnInit, ViewChild } from '@angular/core';
-import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-
-import { MatPaginator } from '@angular/material/paginator';
-import { Cart } from '../../types/cart';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { OnInit } from '@angular/core';
 import { CartService } from '../../service/cart.service';
-import { Router } from '@angular/router';
-import { Session } from '../../../../../types/session';
-import { GameService } from '../../../game/services/game.service';
 
 @Component({
   selector: 'main-cart',
   templateUrl: 'main-cart.component.html',
+  styleUrls: ['main-cart.component.css'],
 })
 export class MainCartComponent implements OnInit {
   cart: any;
+  subtotal: number = 0;
 
   get isLoading() {
     return this.cartService.loading;
@@ -26,22 +17,15 @@ export class MainCartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private _gameService: GameService,
-    private _liveAnnouncer: LiveAnnouncer,
-    private dialog: MatDialog,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getbyid();
-    this.deleteCart();
   }
 
   getbyid() {
     const token = localStorage.getItem('token') + '';
-    const decoded = JSON.parse(
-      window.atob(token.split('.')[1])
-    );
+    const decoded = JSON.parse(window.atob(token.split('.')[1]));
     console.log(decoded);
     /*
     console.log(token);
@@ -54,7 +38,11 @@ export class MainCartComponent implements OnInit {
     console.log(JSON.parse(jsonPayload));
     */
     this.cartService.findById(decoded.id).subscribe((data: any) => {
+      this.subtotal = data.reduce((acc: any, cur: any) => {
+        return acc + cur.cart_quantity * cur.game_price;
+      }, 0);
       this.cart = data;
+      // this.subtotal= data
       console.log(data);
     });
   }
@@ -68,12 +56,12 @@ export class MainCartComponent implements OnInit {
     }
   }
 
-  deleteCart() {
-    console.log(CartService)
-    this.cartService.deleteCart(34).subscribe((data) => { });
-
+  deleteCart(cart: any) {
+    console.log(cart);
+    this.cartService.deleteCart(cart.cart_id).subscribe((data) => {
+      console.log(data);
+      this.getbyid();
+    });
   }
-  pay() {
-    
-  }
+  pay() {}
 }

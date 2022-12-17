@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {APP_URL} from "../../../../services/base-url.app";
 import { Game } from '../../game/types/game';
 import { Customer } from '../../../../types/customer';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,12 @@ export class CartService {
   }
   deleteCart(id: number) {
     this.loading = true;
-    return this.http.delete<Cart>(`${APP_URL}cart/${id}`);
+    return this.http.delete<Cart>(`${APP_URL}cart/${id}`).pipe(
+      catchError((error) => {
+        console.log(error);
+        return error
+      }
+    ));
   }
 
   saveCart(cart: Cart) {

@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../types/customer';
 import { APP_URL } from 'src/app/services/base-url.app';
@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class CustomerService {
     loading: boolean = false;
     private people: Customer[] = [];
-    customer: any = {
+    customer: Customer = {
+        id: 0,
         customer_name: '',
         customer_password: '',
         customer_email: '',

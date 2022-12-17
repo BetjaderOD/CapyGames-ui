@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Game } from '../types/game';
 import { APP_URL } from 'src/app/services/base-url.app';
+import { catchError } from 'rxjs';
+import { Cart } from '../../cart/types/cart';
 
 @Injectable({
     providedIn: 'root'
@@ -42,8 +44,14 @@ export class GameService {
         return this.juego;
     }
 
-    addToCart(game: Game) {
-        this.juego.push(game);
-        console.log(this.juego);
+    addToCart(cart: Cart) {
+        return this.http.post(`${APP_URL}cart/`, cart).pipe(
+            catchError((error) => {
+                console.log(error);
+                return error
+            }
+        ))
+        // this.juego.push(game);
+        // console.log(this.juego);
     }
 }

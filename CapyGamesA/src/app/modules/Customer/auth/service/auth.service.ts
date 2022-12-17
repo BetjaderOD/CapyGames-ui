@@ -5,13 +5,18 @@ import { catchError, of } from 'rxjs';
 import { CustomerLogin } from '../types/user';
 import { LoginStateService } from '../../../../services/login-state.service';
 import { APP_URL } from '../../../../services/base-url.app';
-import { CustomerRegister } from '../types/user-register';
+import { Customer } from '../../../../types/customer';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private loading: boolean = false;
+
+  set isLoading(value: boolean) {
+    this.loading = value;
+  }
+
   get isLoading() {
     return this.loading;
   }
@@ -41,15 +46,17 @@ export class AuthService {
         this.router.navigateByUrl('/games');
       });
   }
-  register(payload: CustomerRegister) {
+  register(customer: Customer) {
+    //console.log(customer);
     this.loading = true;
     return this.httpClient
-      .post<any>(APP_URL + 'customers/', payload, {
+      .post<any>(APP_URL + 'customers/', customer, {
         headers: { 'Content-Type': 'application/json' },
       })
       .pipe(
         catchError((error) => {
           this.loading = false;
+          //console.log(error);
           return error;
         })
       );

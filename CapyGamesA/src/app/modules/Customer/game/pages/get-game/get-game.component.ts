@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game } from '../../types/game';
 import { GameService } from '../../services/game.service';
+import { Cart } from '../../../cart/types/cart';
 
 @Component({
   selector: 'app-get-game',
@@ -9,13 +10,22 @@ import { GameService } from '../../services/game.service';
   styleUrls: ['./get-game.component.css'],
 })
 export class GetGameComponent implements OnInit {
+  game?: Game;
+  cart: Cart = {
+    id: 0,
+    cart_id: 0,
+    customer_id: 0,
+    game_id: 0,
+    cart_quantity: 0,
+  }
 
   get isLoading() {
     return this._gameservice.loading;
   }
-game?: Game;
-  constructor(private route: ActivatedRoute,
-    private readonly _gameservice: GameService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private readonly _gameservice: GameService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -27,18 +37,28 @@ game?: Game;
     this._gameservice.findById(id).subscribe((response) => {
       this.game = response[0];
       this._gameservice.loading = false;
-      console.log(response);
-      
+      //console.log(response);
     });
   }
 
-  
-
   //add to cart
   addCart(game: Game) {
-    this._gameservice.addToCart(game);
+    const token = localStorage.getItem('token') + '';
+    const decoded = JSON.parse(window.atob(token.split('.')[1]));
+
+    this.cart = {
+      id: 0,
+      cart_id: 0,
+      customer_id: decoded.id,
+      game_id: game.game_id,
+      cart_quantity: 1,
+    };
+
+    this._gameservice.addToCart(this.cart).subscribe((response) => {
+      console.log(response);
+      
+    })
   }
-  
 }
 
 /*

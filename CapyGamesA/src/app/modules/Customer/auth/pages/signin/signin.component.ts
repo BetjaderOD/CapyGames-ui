@@ -27,7 +27,7 @@ export class SigninComponent {
     private activeRoute: ActivatedRoute
   ) {
     this.activeRoute.url.subscribe((url) => {
-      console.log(url[0]);
+      //console.log(url[0]);
     });
     this.loginState.setIsLogged = !!localStorage.getItem('token');
     if (!this.loginState.isLogged) this.router.navigateByUrl('/');

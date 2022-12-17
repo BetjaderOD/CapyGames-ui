@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Customer } from '../../../../../types/customer';
 import { CustomerService } from '../../../../../services/customer.service';
 import { AuthService } from '../../service/auth.service';
+import { LoginStateService } from 'src/app/services/login-state.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,8 @@ import { AuthService } from '../../service/auth.service';
 })
 export class SignupComponent {
   loading: boolean = false;
-  customer: any = {
+  customer: Customer = {
+    id: 0,
     customer_name: '',
     customer_password: '',
     customer_email: '',
@@ -28,15 +30,22 @@ export class SignupComponent {
     private _customerService: CustomerService,
     private authService: AuthService,
     private router: Router,
-    private activeRoute:ActivatedRoute
+    private loginStateService: LoginStateService,
+    private activeRoute: ActivatedRoute,
   ) {
     this.activeRoute.url.subscribe(url=>{
-      console.log(url[0]);
+      //console.log(url[0]);
     })
   }
 
   signup() {
-    this._customerService.signUp(this.customer);
-    console.log(this.customer);
+    this.loading = true;
+    this.authService.register(this.customer).subscribe((response) => {
+      //console.log(response);
+      this.loading = false;
+      this.authService.isLoading = false;
+      this.loginStateService.signinOrsignUp = true;
+      this.router.navigateByUrl('/auth');
+    });
   }
 }

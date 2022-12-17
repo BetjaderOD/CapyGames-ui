@@ -83,19 +83,8 @@
                 (click)="signup()"
               >
                 Register
-            </button>
-
-              <a
-                style="margin-left: 0.1px; margin-top: 20px"
-                mat-flat-button
-                class="w-50"
-                color="primary"
-                [routerLink]="['forgot-password']"
-              >
-                Forgot Password
-              </a>
+              </button>
             </div>
-
           </mat-card-actions>
           <mat-card-footer *ngIf="isLoading">
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>

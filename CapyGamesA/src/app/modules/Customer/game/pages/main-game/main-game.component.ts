@@ -16,6 +16,13 @@ import { CustomerService } from '../../../../../services/customer.service';
 export class MainGameComponent implements OnInit {
   games: Game[] = [];
   game?: Game;
+  cart: Cart = {
+    id: 0,
+    cart_id: 0,
+    customer_id: 0,
+    game_id: 0,
+    cart_quantity: 0,
+  }
 
   get isLoading() {
     return this._gameService.loading;
@@ -33,16 +40,37 @@ export class MainGameComponent implements OnInit {
   findAll() {
     this._gameService.findAll().subscribe((response) => {
       this.games = response;
-      console.log(response);
+      //console.log(response);
     });
   }
 
   addCart(game: Game) {
-    this._gameService.addToCart(game);
+    
+    console.log(game);
+    const token = localStorage.getItem('token') + '';
+    const decoded = JSON.parse(
+      window.atob(token.split('.')[1])
+    );
+
+    this.cart = {
+      id: 0,
+      cart_id: 0,
+      customer_id: decoded.id,
+      game_id: game.game_id,
+      cart_quantity: 1,
+    }
+
+    console.log(this.cart);
+    
+    
+    this._gameService.addToCart(this.cart).subscribe((response) => {
+      console.log(response);
+    })
+
   }
 
   viewGame(game: Game) {
-    console.log(game);
+    //console.log(game);
     this.router.navigate(['games/', game.game_id]);
   }
 }
